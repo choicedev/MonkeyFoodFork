@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion 31
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
+dependencies {
+    implementation project(':design:components')
+    implementation kotlinLibrary.stdlib
+    implementation project(path: ':design')
+    testImplementation library.jUnitTest
+    api jetpackCompose.composeRuntime
+
+    implementation library.appCompat
+    implementation library.material
+    implementation library.coreKtx
+    implementation kotlinLibrary.stdlib
+
+    api networking.retrofit
+    api networking.gson
+    api networking.okHttp
+
+    implementation daggerHilt.main
+    kapt daggerHilt.androidCompiler
+    kapt daggerHilt.compiler
+    implementation daggerHilt.viewModel
+
+    api library.navFragment
+    api library.navFragmentKtx
+    implementation library.coil
+    implementation platform('com.google.firebase:firebase-bom:26.0.0')
+    api firebase.analytics
+    api library.dataStore
+
+    implementation database.room
+    kapt database.roomCompiler
+    implementation database.roomKtx
+}

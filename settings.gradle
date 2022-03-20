@@ -1,0 +1,32 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "MonkeyFoodFork"
+include ':app'
+include ':core'
+include ':data'
+include ':data:di'
+include ':data:local'
+include ':data:remote'
+include ':data:irepository'
+include ':design'
+include ':design:theme'
+include ':design:components'
+include ':domain'
+include ':domain:model'
+include ':domain:usecase'
+include ':domain:repository'
+include ':feature'
+include ':feature:splash'
+include ':feature:home'
