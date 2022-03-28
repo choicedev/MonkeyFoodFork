@@ -7,8 +7,9 @@ ext {
     navVersion = "2.3.5"
     dataStoreVersion = "1.0.0-alpha02"
     kotlinVersion = "1.6.10"
-    room_version = "2.3.0"
+    room_version = "2.4.2"
     accompanistVersion = "0.21.4-beta"
+    coilVersion = "2.0.0-rc02"
 
 
     jetpackCompose = [
@@ -51,6 +52,10 @@ ext {
             coil              : "io.coil-kt:coil:1.0.0",
             material          : "com.google.android.material:material:1.4.0",
             locationServices  : "com.google.android.gms:play-services-location:18.0.0"
+    ]
+
+    coil = [
+            imageLoader       :"io.coil-kt:coil-compose:$coilVersion"
     ]
 
     testLibrary = [

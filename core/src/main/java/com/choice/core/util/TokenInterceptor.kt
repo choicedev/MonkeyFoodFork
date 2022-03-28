@@ -20,7 +20,7 @@ class TokenInterceptor @Inject constructor() : Interceptor {
         val request: Request = chain.request()
         val requestBuilder: Request.Builder = request.newBuilder()
         if (request.header(AUTH_HEADER_KEY) == "") {
-            requestBuilder.header("Authorization", "Token $sessionToken")
+            requestBuilder.header(AUTH_HEADER_KEY, "Token $sessionToken")
         }
         return chain.proceed(requestBuilder.build())
     }

@@ -24,7 +24,7 @@ fun MonkeySurface(
     content: @Composable () -> Unit
 ) {
     Surface(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier,
         shape = shape,
         color = color,
         contentColor = contentColor,

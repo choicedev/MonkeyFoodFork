@@ -18,7 +18,25 @@ inline fun MonkeyColumn(
     content: @Composable ColumnScope.() -> Unit
 ) {
     Column(
-        modifier = modifier.padding(MonkeyTheme.spacing.medium),
+        modifier = modifier.padding(
+            start = MonkeyTheme.spacing.extraMedium,
+            end = MonkeyTheme.spacing.extraMedium
+        ),
+        verticalArrangement = verticalArrangement,
+        horizontalAlignment = horizontalAlignment,
+        content = content
+    )
+}
+
+@Composable
+inline fun MonkeyDefaultColumn(
+    modifier: Modifier = Modifier,
+    verticalArrangement: Arrangement.Vertical = Arrangement.Top,
+    horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
+    content: @Composable ColumnScope.() -> Unit
+) {
+    Column(
+        modifier = modifier,
         verticalArrangement = verticalArrangement,
         horizontalAlignment = horizontalAlignment,
         content = content

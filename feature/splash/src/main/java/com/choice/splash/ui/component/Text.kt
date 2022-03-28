@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.choice.compose.MonkeyColumn
 import com.choice.compose.MonkeyRow
 import com.choice.design.R
 import com.choice.theme.MonkeyTheme
@@ -39,14 +40,21 @@ fun MonkeyTitle(
             targetAlpha = 0.8f
         )
     ) {
-        MonkeyRow(
-            horizontalArrangement = Arrangement.Center
+        MonkeyColumn(
+            verticalArrangement = Arrangement.Center
         ){
+            Icon(
+                modifier = Modifier.size(MonkeyTheme.spacing.medium),
+                imageVector = Icons.Filled.RestaurantMenu,
+                tint = MonkeyTheme.colors.primaryVariant,
+                contentDescription = "Localized icon"
+            )
+            Spacer(Modifier.width(MonkeyTheme.spacing.extraSmall))
             Text(
                 text = buildAnnotatedString {
                     withStyle(
                         style = SpanStyle(
-                            color = MonkeyTheme.colors.onPrimary,
+                            color = MonkeyTheme.colors.primaryVariant,
                             fontWeight = FontWeight.SemiBold
                         )
                     ) {
@@ -61,10 +69,6 @@ fun MonkeyTitle(
                 },
                 style = MonkeyTheme.typography.h3
             )
-            Spacer(Modifier.width(MonkeyTheme.spacing.extraSmall))
-            Icon(
-                imageVector = Icons.Filled.RestaurantMenu,
-                contentDescription = "Localized icon")
         }
     }
 }

@@ -27,8 +27,15 @@ android {
 }
 
 dependencies {
+
+    api networking.retrofit
+    api networking.gson
+    api networking.okHttp
+
     implementation kotlinLibrary.stdlib
     implementation library.coreKtx
+    implementation project(path: ':core')
+    implementation project(path: ':domain:model')
     testImplementation testLibrary.jUnitTest
     testImplementation testLibrary.mockitoKotlin
     testImplementation testLibrary.mockito

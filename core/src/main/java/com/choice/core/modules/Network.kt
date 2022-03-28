@@ -25,8 +25,7 @@ class Network {
 
     @Provides
     fun provideOkHttpClient(
-        tokenInterceptor: TokenInterceptor,
-        errorInterceptor: Interceptor
+        tokenInterceptor: TokenInterceptor
     ): OkHttpClient {
         val builder = OkHttpClient.Builder()
         builder.connectTimeout(30, TimeUnit.SECONDS)
@@ -37,7 +36,6 @@ class Network {
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         builder.addInterceptor(loggingInterceptor)
         builder.addInterceptor(tokenInterceptor)
-        builder.addInterceptor(errorInterceptor)
         return builder.build()
     }
 

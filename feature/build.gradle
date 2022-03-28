@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
-
 android {
     compileSdk 30
 
@@ -23,24 +22,57 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
     }
 }
 
 dependencies {
-    implementation project(":core")
 
-    implementation kotlinLibrary.stdlib
-    implementation library.coreKtx
-    implementation database.roomCommon
-    testImplementation testLibrary.jUnitTest
-    testImplementation testLibrary.mockitoKotlin
-    testImplementation testLibrary.mockito
-    testImplementation testLibrary.turbine
-    testImplementation testLibrary.mockWebServer
+    implementation project(":design")
+    implementation project(":design:components")
+    implementation project(":domain:model")
+    implementation project(":feature:home")
+
+
+    api jetpackCompose.composeUI
+    api jetpackCompose.composeTooling
+    api jetpackCompose.composeFoundation
+    api jetpackCompose.composeMaterial
+    api jetpackCompose.composeCore
+    api jetpackCompose.composeExtended
+    api jetpackCompose.composeLiveData
+    api jetpackCompose.composeNavigation
+    api jetpackCompose.composeRuntime
+
+    implementation coil.imageLoader
+
+    implementation accompanist.systemUI
+    implementation accompanist.insetsUI
+    implementation accompanist.insets
+    implementation accompanist.swipeRefresh
+    implementation accompanist.navigation
+    implementation accompanist.placeMaterial
+    implementation accompanist.placeHolder
+    implementation project(path: ':design:theme')
+
     implementation daggerHilt.main
+
     kapt daggerHilt.androidCompiler
     kapt daggerHilt.compiler
     implementation daggerHilt.viewModel
-    implementation library.locationServices
-
+    implementation daggerHilt.navigation
+    implementation database.room
+    kapt database.roomCompiler
+    implementation database.roomKtx
 }

@@ -49,6 +49,9 @@ dependencies {
     api jetpackCompose.composeNavigation
     api jetpackCompose.composeRuntime
 
+    implementation coil.imageLoader
+
+
     implementation accompanist.systemUI
     implementation accompanist.insetsUI
     implementation accompanist.insets

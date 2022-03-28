@@ -29,6 +29,13 @@ android {
 dependencies {
     implementation kotlinLibrary.stdlib
     implementation library.coreKtx
+    implementation project(path: ':core')
+    implementation project(path: ':domain:repository')
+    implementation project(path: ':data:remote')
+    implementation project(path: ':domain:model')
+    implementation project(path: ':domain:model')
+    implementation project(path: ':data:local')
+    implementation project(path: ':data:local')
     testImplementation testLibrary.jUnitTest
     testImplementation testLibrary.mockitoKotlin
     testImplementation testLibrary.mockito

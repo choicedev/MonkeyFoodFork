@@ -26,7 +26,7 @@ fun SplashUI(
         visible.value = true
         delay(1000*3)
         visible.value = false
-        navController.navigate(MonkeyScreen.Home.route)
+        navController.navigate(MonkeyScreen.Main.route)
     }
 
     MonkeyBackgroundUI {

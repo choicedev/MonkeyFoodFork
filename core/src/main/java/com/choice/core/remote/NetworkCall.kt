@@ -1,6 +1,7 @@
 package com.choice.core.remote
 
 import com.choice.core.util.IResult
+import com.choice.core.util.NetworkCallException
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -34,12 +35,11 @@ suspend fun <T: Any> performnetworkCall(
         }
         when(response.code()){
             404 -> {
-                emit(IResult.OnFailed(NetworkCallException("API address not found")))
+                throw NetworkCallException("API address not found")
             }
         }
 
-        emit(IResult.OnFailed(NetworkCallException(response.errorBody()?.string() ?: messageInCaseOfError)))
-        return@flow
+        throw NetworkCallException(response.errorBody()?.string() ?: messageInCaseOfError)
     }.retryWhen { cause, attempt ->
         if (!allowRetries || attempt > numberOfRetries || cause !is java.io.IOException) return@retryWhen false
         delay(delayDuration)
@@ -58,6 +58,3 @@ suspend fun <T: Any> performnetworkCall(
         emit(IResult.OnFailed(NetworkCallException("Please report the error to support: $e")))
     }
 }
-
-
-class NetworkCallException(message: String): Exception(message)

@@ -14,7 +14,8 @@ allprojects {
                     "-Xopt-in=androidx.compose.ui.ExperimentalComposeUiApi",
                     "-Xopt-in=coil.annotation.ExperimentalCoilApi",
                     "-Xopt-in=kotlinx.serialization.ExperimentalSerializationApi",
-                    "-Xopt-in=com.google.accompanist.pager.ExperimentalPagerApi"
+                    "-Xopt-in=com.google.accompanist.pager.ExperimentalPagerApi",
+                    "-Xopt-in=androidx.compose.foundation.ExperimentalFoundationApi"
             ]
         }
     }
