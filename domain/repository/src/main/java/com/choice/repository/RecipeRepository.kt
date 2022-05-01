@@ -1,15 +1,18 @@
 package com.choice.repository
 
 import com.choice.core.util.IResult
-import com.choice.model.FavoriteChange
 import com.choice.model.Recipe
-import com.choice.model.RecipeRequest
+import com.choice.model.RecipeToken
 import kotlinx.coroutines.flow.Flow
 
 interface RecipeRepository {
 
-    suspend fun searchRecipe(recipeRequest: RecipeRequest): Flow<IResult<List<Recipe>>>
+    suspend fun getAllRecipes(): Flow<IResult<List<Recipe>>>
 
-    suspend fun setFavorite(favoriteChange: FavoriteChange): Flow<IResult<Unit>>
+    suspend fun setFavorite(id: Int, favorite: Boolean): Flow<IResult<Unit>>
+
+    suspend fun searchRecipe(query: String): Flow<IResult<List<Recipe>>>
+
+    suspend fun getRecipeById(id: Int): Flow<IResult<Recipe>>
 
 }

@@ -1,10 +1,7 @@
 package com.choice.splash.ui
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.navigation.NavController
 import com.choice.components.MonkeyBackgroundUI
 import com.choice.compose.MonkeyColumn
@@ -17,15 +14,15 @@ fun SplashUI(
     navController: NavController
 ) {
 
-    val visible = remember{
+    var visible by remember {
         mutableStateOf(false)
     }
 
     LaunchedEffect(key1 = true){
         delay(1000)
-        visible.value = true
+        visible = !visible
         delay(1000*3)
-        visible.value = false
+        visible = !visible
         navController.navigate(MonkeyScreen.Main.route)
     }
 
@@ -33,7 +30,7 @@ fun SplashUI(
         MonkeyColumn(
             verticalArrangement = Arrangement.Center
         ) {
-            MonkeyTitle(visible.value)
+            MonkeyTitle(visible)
         }
     }
 

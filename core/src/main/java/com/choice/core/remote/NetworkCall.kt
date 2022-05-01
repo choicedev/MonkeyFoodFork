@@ -26,8 +26,9 @@ suspend fun <T: Any> performnetworkCall(
         val response = networkAPICall()
         if (response.isSuccessful) {
             response.body()?.let {
-                emit(IResult.OnSuccess(it)) } ?:
-                emit(IResult.OnFailed(
+                emit(IResult.OnSuccess(it))
+            } ?: emit(
+                IResult.OnFailed(
                     NetworkCallException("API call successful but empty response body")
                 )
             )

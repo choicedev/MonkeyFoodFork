@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/FabricioZamora.AzureAD/AndroidStudioProjects/MonkeyFoodFork/design/src/main/res/drawable/il_breakfeast.xml" value="0.1975" />
+        <entry key="..\:/Users/FabricioZamora.AzureAD/AndroidStudioProjects/MonkeyFoodFork/design/src/main/res/drawable/il_cooking.xml" value="0.241" />
+        <entry key="..\:/Users/FabricioZamora.AzureAD/AndroidStudioProjects/MonkeyFoodFork/design/src/main/res/drawable/il_preloader.xml" value="0.1205" />
+        <entry key="..\:/Users/FabricioZamora.AzureAD/AndroidStudioProjects/MonkeyFoodFork/design/src/main/res/drawable/il_void.xml" value="0.241" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

@@ -35,11 +35,16 @@ fun MonkeyBar(
 
     AnimatedVisibility(
         visible,
-        enter =  expandVertically(
+        enter = expandVertically(
             expandFrom = Alignment.Top
         ) + fadeIn(
             initialAlpha = 0.3f
         ),
+        exit = shrinkVertically(
+            shrinkTowards = Alignment.Bottom
+        ) + fadeOut(
+            targetAlpha = 0.3f
+        )
     ) {
         Snackbar(
             snackbarData,

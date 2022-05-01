@@ -26,6 +26,8 @@
             <option value="$PROJECT_DIR$/domain/usecase" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/home" />
+            <option value="$PROJECT_DIR$/feature/home/recipes" />
+            <option value="$PROJECT_DIR$/feature/recipedetail" />
             <option value="$PROJECT_DIR$/feature/splash" />
           </set>
         </option>

@@ -20,6 +20,7 @@ import com.choice.theme.MonkeyTheme
 @Composable
 fun LikeAnimationButton(
     isFavorite: Boolean = false,
+    size: Dp = MonkeyTheme.spacing.medium,
     onClick: () -> Unit,
 ) {
 
@@ -32,13 +33,15 @@ fun LikeAnimationButton(
     IconButton(
         modifier = Modifier
             .padding(MonkeyTheme.spacing.default)
-            .size(MonkeyTheme.spacing.medium),
-        onClick = onClick
+            .size(size),
+        onClick = {
+            onClick()
+        }
     ) {
         Icon(
             modifier = Modifier
                 .padding(MonkeyTheme.spacing.extraSmall)
-                .size(MonkeyTheme.spacing.medium),
+                .size(size),
             imageVector = favIcon,
             contentDescription = "Localized icon",
             tint = favColor

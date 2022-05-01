@@ -13,6 +13,15 @@ import com.choice.theme.MonkeyTheme
 
 @Composable
 fun CircularLoadingBar(
+    color: Color = MonkeyTheme.colors.primaryVariant
+) {
+    CircularProgressIndicator(
+        color = color
+    )
+}
+
+@Composable
+fun CircularLoadingBar(
     modifier: Modifier = Modifier,
     text: String = "Waiting...",
     color: Color = MonkeyTheme.colors.primaryVariant

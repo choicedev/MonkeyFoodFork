@@ -38,6 +38,8 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':design')
+
 
     api jetpackCompose.composeUI
     api jetpackCompose.composeTooling

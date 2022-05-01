@@ -1,6 +1,7 @@
 package com.choice.remote
 
 import com.choice.core.remote.Url
+import com.choice.model.Recipe
 import com.choice.model.RecipeToken
 import retrofit2.Response
 import retrofit2.http.GET

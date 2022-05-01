@@ -10,7 +10,7 @@ import com.choice.local.entity.RecipeEntity
 import com.choice.local.mapping.Converter
 import javax.inject.Singleton
 
-private const val DATABASE_VERSION = 3
+private const val DATABASE_VERSION = 5
 private const val DATABASE_NAME = "monkeyrecipes_database.db"
 @Database(
     entities = [

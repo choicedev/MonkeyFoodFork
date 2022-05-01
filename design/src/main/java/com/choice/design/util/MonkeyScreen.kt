@@ -11,5 +11,6 @@ sealed class MonkeyScreen(
     val route: String
 ) {
     object Splash : MonkeyScreen("splash_screen")
-    object Main   : MonkeyScreen("main_screen")
+    object Main : MonkeyScreen("main_screen")
+    object RecipeDetail : MonkeyScreen("recipe_screen")
 }

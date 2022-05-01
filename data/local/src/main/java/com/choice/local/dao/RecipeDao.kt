@@ -18,6 +18,11 @@ interface RecipeDao : BaseDao<RecipeEntity> {
     @Query("UPDATE Recipes SET favorite = :favorite WHERE id = :id")
     suspend fun favorite(id: Int, favorite: Boolean): Int
 
+    @Query(
+        "SELECT * FROM recipes WHERE LOWER(title) LIKE '%' || LOWER(:query) || '%' OR LOWER(publisher) LIKE '%' || LOWER(:query) || '%'"
+    )
+    suspend fun searchRecipeList(query: String): List<RecipeEntity>
+
     @Query("DELETE from Recipes")
     suspend fun deleteAll()
 }
