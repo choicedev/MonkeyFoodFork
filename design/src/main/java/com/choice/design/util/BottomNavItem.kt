@@ -14,4 +14,12 @@ sealed class BottomNavItem(
     object Recipes : BottomNavItem("Recipes", Icons.Filled.MenuBook, "home_screen")
     object Favorite : BottomNavItem("Favorite", Icons.Filled.Favorite, "favorite")
     object Info : BottomNavItem("Info", Icons.Filled.Info, "info")
+
+    companion object {
+        val items = listOf(
+            Recipes,
+            Favorite,
+            Info
+        )
+    }
 }

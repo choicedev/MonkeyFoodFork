@@ -14,13 +14,8 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun AppUI() {
-    val systemUiController = rememberSystemUiController()
 
-     MonkeySurface(
-            modifier = Modifier.fillMaxSize()
-        ) {
-         MonkeyHost()
-     }
+    val systemUiController = rememberSystemUiController()
 
     SideEffect {
         systemUiController.setSystemBarsColor(
@@ -31,4 +26,9 @@ fun AppUI() {
             color = md_theme_light_onPrimaryVariant
         )
     }
+
+    MonkeySurface {
+        MonkeyHost()
+    }
+
 }

@@ -16,7 +16,6 @@ fun MonkeyScaffold(
     scaffoldState: ScaffoldState = rememberScaffoldState(),
     topBar: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
-    snackbarHost: @Composable (SnackbarHostState) -> Unit = { SnackbarHost(it) },
     floatingActionButton: @Composable () -> Unit = {},
     floatingActionButtonPosition: FabPosition = FabPosition.End,
     isFloatingActionButtonDocked: Boolean = false,
@@ -36,7 +35,11 @@ fun MonkeyScaffold(
         scaffoldState,
         topBar,
         bottomBar,
-        snackbarHost,
+        snackbarHost = {
+            SnackbarHost(it) { data ->
+                MonkeyBar(data)
+            }
+        },
         floatingActionButton,
         floatingActionButtonPosition,
         isFloatingActionButtonDocked,

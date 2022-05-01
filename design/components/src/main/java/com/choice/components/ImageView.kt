@@ -1,35 +1,50 @@
 package com.choice.components
 
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.Shapes
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
-import coil.transform.RoundedCornersTransformation
+import com.choice.animation.LikeAnimationButton
+import com.choice.compose.*
 import com.choice.theme.MonkeyTheme
 
 @Composable
-fun MonkeyImageCoil(
+fun MonkeyImageRecipe(
     url: String?,
-    crossfade: Boolean = true,
-    durationMillis: Int = 400,
-    shapes: RoundedCornersTransformation = RoundedCornersTransformation(10f),
-    modifier: Modifier = Modifier,
+    shapes: CornerBasedShape = MonkeyTheme.shapes.medium,
+    visible: Boolean = false,
+    favoriteClick: () -> Unit,
 ) {
-    AsyncImage(
-        model = ImageRequest.Builder(LocalContext.current)
-            .data(url ?: "")
-            .crossfade(crossfade)
-            .crossfade(durationMillis)
-            .transformations(shapes)
-            .build(),
-        contentScale = ContentScale.Crop,
-        modifier = modifier.clip(MonkeyTheme.shapes.medium),
-        contentDescription = "Localized image"
-    )
+
+    Box(
+        modifier = Modifier.size(MonkeyTheme.spacing.exxxztraLarge),
+        contentAlignment = Alignment.TopEnd
+    ) {
+        MonkeyImage(
+            urlImage = url,
+            modifier = Modifier
+                .clip(shapes),
+        )
+        MonkeyRow(
+            modifier = Modifier.padding(MonkeyTheme.spacing.small),
+            horizontalArrangement = Arrangement.End,
+            verticalAlignment = Alignment.Top
+        ) {
+            MonkeySurface(
+                modifier = Modifier.size(MonkeyTheme.spacing.medium),
+                color = MonkeyTheme.colors.onSurface.copy(
+                    alpha = 0.86f
+                ),
+                shape = CircleShape
+            ) {
+                LikeAnimationButton(
+                    isFavorite = visible,
+                    onClick = favoriteClick
+                )
+            }
+        }
+    }
 }

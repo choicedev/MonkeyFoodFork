@@ -22,3 +22,18 @@ inline fun MonkeyRow(
         content = content
     )
 }
+
+@Composable
+inline fun MonkeyDefaultRow(
+    modifier: Modifier = Modifier,
+    horizontalArrangement: Arrangement.Horizontal = Arrangement.Start,
+    verticalAlignment: Alignment.Vertical = Alignment.CenterVertically,
+    content: @Composable RowScope.() -> Unit
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = horizontalArrangement,
+        verticalAlignment = verticalAlignment,
+        content = content
+    )
+}

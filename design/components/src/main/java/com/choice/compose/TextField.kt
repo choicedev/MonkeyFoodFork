@@ -25,6 +25,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.choice.theme.MonkeyTheme
+import com.choice.theme.compose.monkeyTextFieldColors
 
 
 @Composable
@@ -170,7 +171,8 @@ internal fun ErrorAnimation(
 fun MonkeyTextFieldState(
     modifier: Modifier = Modifier,
     valueState: MutableState<String>,
-    label: String,
+    label: @Composable (() -> Unit)? = null,
+    placeholder: String? = null,
     enabled: Boolean,
     keyboardType: KeyboardType = KeyboardType.Text,
     imeAction: ImeAction = ImeAction.Next,
@@ -190,14 +192,8 @@ fun MonkeyTextFieldState(
         onValueChange = {
             valueState.value = it.take(maxLength)
         },
-        label = {
-            Text(
-                text = label,
-                style = MaterialTheme.typography.subtitle2.copy(
-                    fontWeight = FontWeight.Normal
-                )
-            )
-        },
+        label = label,
+        placeholder = placeholder,
         singleLine = singleLine,
         textStyle = textStyle,
         trailingIcon = trailingIcon,
@@ -221,7 +217,7 @@ fun MonkeyTextField(
     readOnly: Boolean = false,
     textStyle: TextStyle = LocalTextStyle.current,
     label: @Composable (() -> Unit)? = null,
-    placeholder: @Composable (() -> Unit)? = null,
+    placeholder: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     isError: Boolean = false,
@@ -245,8 +241,14 @@ fun MonkeyTextField(
             enabled,
             readOnly,
             textStyle,
-            label,
-            placeholder,
+            label = label,
+            placeholder = {
+                placeholder?.let {
+                    Text(
+                        text = it,
+                    )
+                }
+            },
             leadingIcon,
             trailingIcon,
             isError,

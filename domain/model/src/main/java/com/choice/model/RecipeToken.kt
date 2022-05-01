@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class RecipeToken(
     @SerializedName("results")
-    var results: List<Recipe>?
+    var results: List<Recipe>? = null
 )
