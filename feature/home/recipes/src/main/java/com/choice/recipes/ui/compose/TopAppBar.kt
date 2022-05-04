@@ -6,18 +6,21 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
-import com.choice.components.MonkeyCenterTopAppBarBack
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.choice.components.MonkeyCenterTopAppBar
 import com.choice.components.MonkeyIconButton
 import com.choice.recipes.ui.RecipesViewModel
+import com.choice.recipes.ui.components.SearchTopAppBar
 import com.choice.recipes.util.RecipesEvent
-import com.choice.recipes.ui.components.SearchToolBar
 import com.choice.theme.MonkeyTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @Composable
 fun RecipeTopAppBar(
-    viewModel: RecipesViewModel
+    navController: NavController,
+    viewModel: RecipesViewModel = hiltViewModel(),
 ) {
 
     var visible by remember {
@@ -25,18 +28,16 @@ fun RecipeTopAppBar(
     }
     val density = LocalDensity.current
     val scope = rememberCoroutineScope()
-
-
     AnimatedVisibility(
         visible = visible,
         enter = slideInVertically {
-            with(density) { -40.dp.roundToPx() }
+            with(density) { -15.dp.roundToPx() }
         } + fadeIn(),
         exit = shrinkVertically {
-            with(density) { -40.dp.roundToPx() }
+            with(density) { -15.dp.roundToPx() }
         } + fadeOut()
     ) {
-        MonkeyCenterTopAppBarBack(
+        MonkeyCenterTopAppBar(
             title = "MonkeyFood",
             textColor = MonkeyTheme.colors.primaryVariant,
             actions = {
@@ -47,9 +48,8 @@ fun RecipeTopAppBar(
         )
     }
 
-    SearchToolBar(
+    SearchTopAppBar(
         visible = visible,
-        viewModel = viewModel,
         onClick = {
             scope.launch {
                 visible = true

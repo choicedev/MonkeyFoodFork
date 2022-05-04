@@ -6,8 +6,10 @@ import androidx.compose.foundation.lazy.*
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.SnackbarResult
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.choice.components.MonkeyIllustration
 import com.choice.design.R
@@ -26,10 +28,10 @@ import kotlinx.coroutines.launch
 @Composable
 fun LazyGridLayout(
     scaffoldState: ScaffoldState,
-    menuViewModel: RecipesViewModel,
-    mainController: NavController
+    mainController: NavController,
+    viewModel: RecipesViewModel = hiltViewModel()
 ) {
-    val state = menuViewModel.state
+    val state = viewModel.state
     val scope = rememberCoroutineScope()
 
 
@@ -49,22 +51,19 @@ fun LazyGridLayout(
 
         else -> {
             LazyGridLayout {
-                itemsIndexed(state.recipeList.toList()) { _, item ->
+                items(state.recipeList.toList()) { item ->
                     RecipeItem(
                         modifier = Modifier
                             .fillMaxSize()
                             .clickable {
-                                scope.launch {
-                                    mainController.navigate(MonkeyScreen.RecipeDetail.route + "?recipeId=${item.id}")
-                                }
+                                mainController.navigate(MonkeyScreen.RecipeDetail.route + "?recipeId=${item.id}")
                             },
                         item,
                         onFavoriteClick = {
                             scope.launch {
-                                menuViewModel.onEvent(
+                                viewModel.onEvent(
                                     RecipesEvent.OnFavoriteChange(
-                                        item.id,
-                                        !item.favorite
+                                        item.copy(favorite = !item.favorite)
                                     )
                                 )
                                 delay(500)
@@ -74,12 +73,7 @@ fun LazyGridLayout(
                                 ).takeIf { result ->
                                     result == SnackbarResult.ActionPerformed
                                 }?.apply {
-                                    menuViewModel.onEvent(
-                                        RecipesEvent.OnFavoriteChange(
-                                            item.id,
-                                            item.favorite
-                                        )
-                                    )
+                                    viewModel.onEvent(RecipesEvent.OnRestoreFavorite)
                                 }
                             }
                         },

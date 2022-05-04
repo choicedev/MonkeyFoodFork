@@ -34,7 +34,7 @@ fun Description(
         Text(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(end = MonkeyTheme.spacing.large),
+                .padding(end = MonkeyTheme.spacing.extraLarge),
             text = "$title",
             style = MonkeyTheme.typography.h6.copy(
                 fontWeight = FontWeight.SemiBold,

@@ -4,14 +4,14 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
-import com.choice.components.MonkeyCenterTopAppBarBack
+import com.choice.components.MonkeyCenterTopAppBar
 import com.choice.theme.MonkeyTheme
 
 @Composable
 fun RecipeTopAppBar(
     navController: NavController
 ) {
-    MonkeyCenterTopAppBarBack(
+    MonkeyCenterTopAppBar(
         "",
         textColor = MonkeyTheme.colors.surface,
         backgroundColor = Color.Transparent,
@@ -26,7 +26,7 @@ fun RecipeTopAppBarAnimation(
     navController: NavController
 ) {
     AnimatedVisibility(visible = visible) {
-        MonkeyCenterTopAppBarBack(
+        MonkeyCenterTopAppBar(
             "",
             backgroundColor = Color.Transparent,
             onBack = {

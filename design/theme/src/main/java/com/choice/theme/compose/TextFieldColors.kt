@@ -9,12 +9,10 @@ import com.choice.theme.MonkeyTheme
 @Composable
 fun monkeyTextFieldColors() = TextFieldDefaults.textFieldColors(
     backgroundColor = Color.Transparent,
-    unfocusedLabelColor = MonkeyTheme.colors.onSurface,
-    focusedLabelColor = MonkeyTheme.colors.primaryVariant,
     focusedIndicatorColor = Color.Transparent,
     unfocusedIndicatorColor = Color.Transparent,
-    textColor = MonkeyTheme.colors.onSurface,
-    cursorColor = MonkeyTheme.colors.primaryVariant,
+    textColor = MonkeyTheme.colors.primaryVariant,
+    cursorColor = MonkeyTheme.colors.primary,
     placeholderColor = MonkeyTheme.colors.primaryVariant,
     disabledPlaceholderColor = MonkeyTheme.colors.onSurface
 )

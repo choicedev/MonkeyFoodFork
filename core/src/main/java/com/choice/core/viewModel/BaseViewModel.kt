@@ -10,18 +10,18 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.choice.design.util.UiEvent
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
 abstract class BaseViewModel<STATE, EVENT>(private val initState: STATE) : ViewModel() {
 
-    var state by mutableStateOf<STATE>(initState)
+    var state by mutableStateOf(initState)
 
     @Suppress("MemberVisibilityCanBePrivate")
     protected val _eventFlow = MutableSharedFlow<UiEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
-
 
     abstract fun onEvent(event: EVENT)
 

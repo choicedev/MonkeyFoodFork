@@ -23,7 +23,7 @@ import com.choice.theme.MonkeyTheme
 @Composable
 fun Header(
     urlImage: String?,
-    isFavorite: Boolean,
+    isFavorite: Boolean?,
     navController: NavController,
     favoriteClick: () -> Unit
 ) {
@@ -55,7 +55,7 @@ fun Header(
         }
 
         RecipeDetailFlaotingButton(
-            isFavorite = isFavorite,
+            isFavorite = isFavorite ?: false,
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .offset(y = 25.dp)

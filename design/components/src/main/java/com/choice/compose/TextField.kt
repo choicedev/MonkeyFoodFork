@@ -27,104 +27,6 @@ import androidx.compose.ui.unit.dp
 import com.choice.theme.MonkeyTheme
 import com.choice.theme.compose.monkeyTextFieldColors
 
-
-@Composable
-fun MonkeyOutlinedTextFieldState(
-    modifier: Modifier = Modifier,
-    valueState: MutableState<String>,
-    label: String,
-    enabled: Boolean,
-    keyboardType: KeyboardType = KeyboardType.Text,
-    imeAction: ImeAction = ImeAction.Next,
-    onAction: KeyboardActions = KeyboardActions.Default,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
-    textStyle: TextStyle = MaterialTheme.typography.body1.copy(fontWeight = FontWeight.Normal),
-    maxLength: Int,
-    singleLine: Boolean = true,
-    trailingIcon: @Composable (() -> Unit)? = null,
-    isError: Boolean = false,
-    textError: String? = null
-) {
-    MonkeyOutlinedTextField(
-        modifier = modifier,
-        value = valueState.value,
-        onValueChange = {
-            valueState.value = it.take(maxLength)
-        },
-        label = {
-            Text(
-                text = label,
-                style = MaterialTheme.typography.subtitle2.copy(
-                    fontWeight = FontWeight.Normal
-                )
-            )
-        },
-        singleLine = singleLine,
-        textStyle = textStyle,
-        trailingIcon = trailingIcon,
-        enabled = enabled,
-        keyboardType = keyboardType,
-        imeAction = imeAction,
-        keyboardActions = onAction,
-        visualTransformation = visualTransformation,
-        isError = isError,
-        textError = textError,
-    )
-}
-
-@Composable
-fun MonkeyOutlinedTextField(
-    value: String,
-    onValueChange: (String) -> Unit,
-    modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    readOnly: Boolean = false,
-    textStyle: TextStyle = LocalTextStyle.current,
-    label: @Composable (() -> Unit)? = null,
-    placeholder: @Composable (() -> Unit)? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
-    keyboardType: KeyboardType = KeyboardType.Text,
-    imeAction: ImeAction = ImeAction.Next,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
-    singleLine: Boolean = false,
-    maxLines: Int = Int.MAX_VALUE,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: TextFieldColors = TextFieldDefaults.outlinedTextFieldColors(),
-    isError: Boolean = false,
-    textError: String? = null,
-) {
-
-    MonkeyColumn(Modifier.fillMaxWidth()) {
-        OutlinedTextField(
-            value = value,
-            onValueChange = onValueChange,
-            modifier = modifier.fillMaxWidth(),
-            enabled = enabled,
-            readOnly = readOnly,
-            textStyle = textStyle,
-            label = label,
-            placeholder = placeholder,
-            leadingIcon = leadingIcon,
-            trailingIcon = trailingIcon,
-            isError = isError,
-            visualTransformation = visualTransformation,
-            keyboardOptions = KeyboardOptions(keyboardType = keyboardType, imeAction = imeAction),
-            keyboardActions = keyboardActions,
-            singleLine = singleLine,
-            maxLines = maxLines,
-            interactionSource = interactionSource,
-            shape = MonkeyTheme.shapes.medium,
-            colors = colors
-        )
-
-        if(isError && textError != null){
-            ErrorAnimation(textError, isError = isError)
-        }
-    }
-}
-
 @Composable
 internal fun ErrorAnimation(
     value: String,
@@ -166,48 +68,6 @@ internal fun ErrorAnimation(
     }
 }
 
-
-@Composable
-fun MonkeyTextFieldState(
-    modifier: Modifier = Modifier,
-    valueState: MutableState<String>,
-    label: @Composable (() -> Unit)? = null,
-    placeholder: String? = null,
-    enabled: Boolean,
-    keyboardType: KeyboardType = KeyboardType.Text,
-    imeAction: ImeAction = ImeAction.Next,
-    onAction: KeyboardActions = KeyboardActions.Default,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
-    textStyle: TextStyle = MaterialTheme.typography.body1.copy(fontWeight = FontWeight.Normal),
-    maxLength: Int,
-    singleLine: Boolean = true,
-    trailingIcon: @Composable (() -> Unit)? = null,
-    isError: Boolean = false,
-    textError: String? = null,
-    colors: TextFieldColors = TextFieldDefaults.textFieldColors()
-) {
-    MonkeyTextField(
-        modifier = modifier,
-        value = valueState.value,
-        onValueChange = {
-            valueState.value = it.take(maxLength)
-        },
-        label = label,
-        placeholder = placeholder,
-        singleLine = singleLine,
-        textStyle = textStyle,
-        trailingIcon = trailingIcon,
-        enabled = enabled,
-        keyboardType = keyboardType,
-        imeAction = imeAction,
-        onAction = onAction,
-        visualTransformation = visualTransformation,
-        isError = isError,
-        textError = textError,
-        colors = colors,
-    )
-}
-
 @Composable
 fun MonkeyTextField(
     value: String,
@@ -215,7 +75,6 @@ fun MonkeyTextField(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    textStyle: TextStyle = LocalTextStyle.current,
     label: @Composable (() -> Unit)? = null,
     placeholder: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
@@ -231,7 +90,7 @@ fun MonkeyTextField(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     shape: Shape =
         MonkeyTheme.shapes.medium,
-    colors: TextFieldColors = TextFieldDefaults.textFieldColors()
+    colors: TextFieldColors = monkeyTextFieldColors()
 ) {
     MonkeyColumn {
         TextField(
@@ -240,7 +99,9 @@ fun MonkeyTextField(
             modifier.fillMaxWidth(),
             enabled,
             readOnly,
-            textStyle,
+            textStyle = MonkeyTheme.typography.subtitle1.copy(
+                fontWeight = FontWeight.Normal
+            ),
             label = label,
             placeholder = {
                 placeholder?.let {

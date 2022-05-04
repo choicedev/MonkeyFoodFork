@@ -7,7 +7,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import coil.compose.AsyncImagePainter
-import com.choice.animation.DefaultShimmerAnimation
 import com.choice.components.MonkeyImageRecipe
 import com.choice.compose.*
 import com.choice.model.Recipe
@@ -60,21 +59,6 @@ private fun Recipe(
         Spacer(Modifier.height(MonkeyTheme.spacing.medium))
     }
 }
-
-@Composable
-private fun LoadingItem() {
-
-    DefaultShimmerAnimation(cardSize = 200)
-    Spacer(Modifier.height(MonkeyTheme.spacing.small))
-    DefaultShimmerAnimation(cardSize = 15)
-    Spacer(Modifier.height(MonkeyTheme.spacing.extraSmall))
-    DefaultShimmerAnimation(cardSize = 20)
-    Spacer(Modifier.height(MonkeyTheme.spacing.extraSmall))
-    DefaultShimmerAnimation(cardSize = 15)
-    Spacer(Modifier.height(MonkeyTheme.spacing.extraSmall))
-
-}
-
 
 @Composable
 private fun RecipeText(

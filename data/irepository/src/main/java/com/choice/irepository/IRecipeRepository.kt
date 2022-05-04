@@ -15,7 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
-class IRecipeRepository @Inject constructor(
+class IRecipeRepository constructor(
     @Network.Food2Fork private val webservice: ApiFoodFork,
     private val dao: RecipeDao
 ) : RecipeRepository {
@@ -23,11 +23,11 @@ class IRecipeRepository @Inject constructor(
     override suspend fun getAllRecipes(): Flow<IResult<List<Recipe>>> {
         return flow {
 
-            dao.getAll()?.takeIf {
-                it.isNotEmpty()
-            }?.apply {
-                emit(IResult.OnSuccess(this.map { i -> i.toDomain() }))
-                return@flow
+            dao.getAll().collect{
+                if(it.isNotEmpty()){
+                    emit(IResult.OnSuccess(it.map{i -> i.toDomain()}))
+                    return@collect
+                }
             }
 
             emit(IResult.OnLoading(true, "looking for ingredients..."))
@@ -42,7 +42,7 @@ class IRecipeRepository @Inject constructor(
                     is IResult.OnSuccess -> {
                         it.response.results?.let { recipe ->
                             dao.insert(recipe.map { i -> i.toEntity() })
-                            emit(IResult.OnSuccess(recipe))
+                            emit(IResult.OnSuccess(dao.getAll().first().map { i -> i.toDomain() }))
                             emit(IResult.OnLoading(false))
                             return@collect
                         }
@@ -60,16 +60,8 @@ class IRecipeRepository @Inject constructor(
     }
 
 
-    override suspend fun setFavorite(id: Int, favorite: Boolean): Flow<IResult<Unit>> {
-        return flow {
-            dao.favorite(id, favorite).also {
-                if (it == 1) emit(IResult.OnSuccess(Unit)) else emit(
-                    IResult.OnFailed(
-                        RepositoryException("Desfavoritado")
-                    )
-                )
-            }
-        }
+    override suspend fun setFavorite(recipe: Recipe) {
+        dao.favorite(recipe.id ?: -1, recipe.favorite)
     }
 
     override suspend fun searchRecipe(query: String): Flow<IResult<List<Recipe>>> {
@@ -80,12 +72,8 @@ class IRecipeRepository @Inject constructor(
         }
     }
 
-    override suspend fun getRecipeById(id: Int): Flow<IResult<Recipe>> {
-        return flow {
-            dao.getById(id)?.apply {
-                emit(IResult.OnSuccess(this.toDomain()))
-            } ?: emit(IResult.OnFailed(RepositoryException("recipe not found")))
-        }
+    override suspend fun getRecipeById(id: Int): Recipe? {
+        return dao.getById(id)?.toDomain()
     }
 
 }

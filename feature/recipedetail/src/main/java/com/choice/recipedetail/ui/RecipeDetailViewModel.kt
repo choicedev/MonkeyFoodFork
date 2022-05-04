@@ -8,27 +8,33 @@ import com.choice.model.Recipe
 import com.choice.param.FavoriteParam
 import com.choice.recipedetail.util.RecipeDetailEvent
 import com.choice.recipedetail.util.RecipeState
-import com.choice.usecase.RecipeGetUseCase
-import com.choice.usecase.RecipeSetFavoriteUseCase
+import com.choice.usecase.RecipeGetByIdUseCases
+import com.choice.usecase.RecipeSetFavoriteUseCases
+import com.choice.usecase.RecipeUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class RecipeDetailViewModel @Inject constructor(
-    private val getRecipeById: RecipeGetUseCase,
-    private val recipeFavoriteUseCase: RecipeSetFavoriteUseCase,
+    private val recipeUseCases: RecipeUseCases,
     savedStateHandle: SavedStateHandle
 ) : BaseViewModel<RecipeState, RecipeDetailEvent>(RecipeState()) {
+
+    private var currentId: Int? = null
+
+    private var recipeJob: Job? = null
 
     init {
         savedStateHandle.get<Int>("recipeId")?.let {
             if (it != -1) {
                 viewModelScope.launch {
-                    state = state.copy(
-                        id = it
-                    )
+                    currentId = it
                     onGetRecipeById()
                 }
             }
@@ -38,48 +44,29 @@ class RecipeDetailViewModel @Inject constructor(
     override fun onEvent(event: RecipeDetailEvent) {
         when (event) {
             is RecipeDetailEvent.OnFavoriteChange -> {
-                onFavoriteChange()
+                viewModelScope.launch {
+                    onFavoriteChange()
+                    delay(50)
+                    onGetRecipeById()
+                }
             }
         }
     }
 
 
     private fun onFavoriteChange(
-        id: Int? = state.recipe.id,
-        favorite: Boolean = state.recipe.favorite
+        recipe: Recipe = state.recipe,
     ) = viewModelScope.launch {
-        recipeFavoriteUseCase(
-            FavoriteParam(id ?: -1, !favorite)
-        ).catch { showSnackbar("$it") }
-            .collect {
-                when (it) {
-                    is IResult.OnSuccess -> {
-                        onGetRecipeById()
-                    }
-                    is IResult.OnFailed -> {
-                        showSnackbar("Failed\n${it.throwable.message}")
-                    }
-                }
-            }
+        recipeUseCases.setFavorite(recipe.copy(
+            favorite = !state.recipe.favorite
+        ))
     }
 
     private suspend fun onGetRecipeById(
-        id: Int = state.id
+        id: Int = currentId!!
     ) {
-        getRecipeById(id)
-            .catch { e ->
-                showSnackbar("$e")
-            }.collect { recipe ->
-                when (recipe) {
-                    is IResult.OnSuccess -> {
-                        state = state.copy(
-                            recipe = recipe.response
-                        )
-                    }
-                    is IResult.OnFailed -> {
-                        showSnackbar("FAILED ${recipe.throwable}")
-                    }
-                }
-            }
+        state = state.copy(
+            recipe = recipeUseCases.getRecipeById(id) ?: Recipe()
+        )
     }
 }

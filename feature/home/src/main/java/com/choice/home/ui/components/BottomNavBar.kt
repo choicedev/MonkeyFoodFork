@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.choice.design.util.BottomNavItem
 import com.choice.theme.MonkeyTheme
@@ -55,8 +56,14 @@ fun BottomBarNavigation(
                     onClick = {
                         if(currentRoute?.route != item.route) {
                             navController.navigate(item.route) {
+
+                                popUpTo(navController.graph.findStartDestination().id){
+                                    saveState = true
+                                }
                                 launchSingleTop = true
+                                restoreState = true
                             }
+
                         }
                     }
                 )

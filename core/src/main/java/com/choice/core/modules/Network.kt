@@ -42,7 +42,8 @@ class Network {
     @Provides
     @Network.Food2Fork
     fun provideRetrofit(
-        okHttpClient: OkHttpClient, @Network.Food2Fork baseUrl: String
+        okHttpClient: OkHttpClient,
+        @Network.Food2Fork baseUrl: String
     ): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())

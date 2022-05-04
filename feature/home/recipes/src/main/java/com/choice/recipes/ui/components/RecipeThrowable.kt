@@ -8,9 +8,11 @@ import com.choice.theme.MonkeyTheme
 
 @Composable
 fun RecipeThrowable(
-    error: Throwable
+    error: Throwable?
 ) {
-    MonkeyIllustrationError(
-        error = error
-    )
+    error?.let {
+        MonkeyIllustrationError(
+            error = error
+        )
+    }
 }

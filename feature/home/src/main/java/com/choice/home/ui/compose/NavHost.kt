@@ -5,32 +5,34 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
 import com.choice.design.util.BottomNavItem
-import com.choice.recipes.ui.RecipesUI
+import com.choice.favorite.ui.FavoriteUI
+import com.choice.recipes.navigation.composableRecipes
+import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 
 @Composable
-fun MainBottomBar(
-    scaffoldState: ScaffoldState,
+fun BottomNavHost(
     navController: NavHostController,
-    mainController: NavController
+    mainController: NavController,
+    scaffoldState: ScaffoldState
 ) {
     AnimatedNavHost(
         navController = navController,
         startDestination = BottomNavItem.Recipes.route,
     ) {
-        composable(
-            BottomNavItem.Recipes.route
-        ) {
-            RecipesUI(navController, scaffoldState, mainController)
-        }
+        composableRecipes(navController, mainController, scaffoldState)
 
         composable(route = BottomNavItem.Favorite.route) {
-            Text("NOUEI")
+            FavoriteUI(navController, mainController, scaffoldState)
+        }
+
+        composable(route = BottomNavItem.Info.route) {
+            Text(modifier = Modifier.statusBarsPadding(), text = "INFO")
         }
     }
 }
