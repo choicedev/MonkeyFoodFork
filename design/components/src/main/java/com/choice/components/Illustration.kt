@@ -10,9 +10,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import com.choice.compose.MonkeyDefaultColumn
-import com.choice.design.R
 import com.choice.theme.MonkeyTheme
 import java.net.UnknownHostException
+import com.choice.design.R
 
 @Composable
 fun MonkeyIllustration(

@@ -5,7 +5,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -40,9 +39,10 @@ class Network {
     }
 
     @Provides
-    @Network.Food2Fork
+    @Food2Fork
     fun provideRetrofit(
-        okHttpClient: OkHttpClient, @Network.Food2Fork baseUrl: String
+        okHttpClient: OkHttpClient,
+        @Food2Fork baseUrl: String
     ): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())

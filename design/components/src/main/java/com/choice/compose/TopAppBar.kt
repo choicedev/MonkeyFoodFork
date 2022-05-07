@@ -1,6 +1,7 @@
 package com.choice.components
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardBackspace
@@ -12,17 +13,20 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.choice.compose.MonkeyTextField
 import com.choice.theme.MonkeyTheme
 import kotlin.math.abs
 import kotlin.math.max
 
 @Composable
-fun MonkeyCenterTopAppBarBack(
+fun MonkeyCenterTopAppBar(
     title: String,
     modifier: Modifier = Modifier,
     textColor: Color = MonkeyTheme.colors.onSurface,
@@ -30,16 +34,16 @@ fun MonkeyCenterTopAppBarBack(
     actions: @Composable RowScope.() -> Unit = {},
     backgroundColor: Color = MonkeyTheme.colors.background,
     contentColor: Color = contentColorFor(backgroundColor),
-    onBack: () -> Unit,
+    onBack: (() -> Unit)? = null,
     elevation: Dp = 0.dp
 ) {
-    MonkeyCenterTopAppBar(
+    CenterTopAppBar(
         modifier = modifier,
         title = {
             Text(
                 modifier = Modifier.wrapContentHeight(),
                 text = title,
-                style = MonkeyTheme.typography.subtitle1.copy(
+                style = MonkeyTheme.typography.h6.copy(
                     fontWeight = FontWeight.Normal,
                     textAlign = TextAlign.Center
                 ),
@@ -48,11 +52,13 @@ fun MonkeyCenterTopAppBarBack(
             )
         },
         navigationIcon = {
-            MonkeyIconButton(
-                icon = Icons.Filled.KeyboardBackspace,
-                color = backColor
-            ) {
-                onBack()
+            onBack?.let {
+                MonkeyIconButton(
+                    icon = Icons.Filled.KeyboardBackspace,
+                    color = backColor
+                ) {
+                    it()
+                }
             }
         },
         actions = actions,
@@ -63,29 +69,48 @@ fun MonkeyCenterTopAppBarBack(
 }
 
 @Composable
-fun MonkeyCenterTopAppBarBack(
-    title: String,
+fun MonkeyCenterSearchTopAppBar(
+    value: String,
+    onValueChange: (String) -> Unit,
+    placeholder: String = "",
     modifier: Modifier = Modifier,
     textColor: Color = MonkeyTheme.colors.onSurface,
-    navigationIcon: @Composable (() -> Unit)? = null,
+    backColor: Color = textColor,
     actions: @Composable RowScope.() -> Unit = {},
     backgroundColor: Color = MonkeyTheme.colors.background,
     contentColor: Color = contentColorFor(backgroundColor),
+    navigateUp: (() -> Unit)? = null,
     elevation: Dp = 0.dp
 ) {
-    MonkeyCenterTopAppBar(
+    val keyboardController = LocalSoftwareKeyboardController.current
+
+    CenterSearchTopAppBar(
         modifier = modifier,
-        title = {
-            Text(
-                text = title,
-                style = MonkeyTheme.typography.h6.copy(
-                    fontWeight = FontWeight.Normal,
-                    textAlign = TextAlign.Center
-                ),
-                color = textColor
+        textfield = {
+            MonkeyTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = value,
+                onValueChange = onValueChange,
+                placeholder = placeholder,
+                enabled = true,
+                imeAction = ImeAction.Search,
+                onAction = KeyboardActions {
+                    keyboardController?.hide()
+                },
+                maxLines = 1,
+                singleLine = true,
             )
         },
-        navigationIcon = navigationIcon,
+        navigationIcon = {
+            navigateUp?.let {
+                MonkeyIconButton(
+                    icon = Icons.Filled.KeyboardBackspace,
+                    color = backColor
+                ) {
+                    it()
+                }
+            }
+        },
         actions = actions,
         contentColor = contentColor,
         backgroundColor = backgroundColor,
@@ -96,10 +121,10 @@ fun MonkeyCenterTopAppBarBack(
 val AppBarHeight = 56.dp
 val AppBarHorizontalPadding = 4.dp
 var iconWidth = 72.dp - AppBarHorizontalPadding
-var withoutIconWidth = 16.dp - AppBarHorizontalPadding
+var withoutIconWidth = 72.dp - AppBarHorizontalPadding
 
 @Composable
-private fun MonkeyCenterTopAppBar(
+private fun CenterTopAppBar(
     title: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     navigationIcon: @Composable (() -> Unit)? = null,
@@ -189,6 +214,84 @@ private fun MonkeyCenterTopAppBar(
     }
 }
 
+
+var iconWidthSearch = 36.dp - AppBarHorizontalPadding
+var withoutIconWidthSearch = AppBarHorizontalPadding
+@Composable
+private fun CenterSearchTopAppBar(
+    textfield: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    navigationIcon: @Composable (() -> Unit)? = null,
+    actions: @Composable RowScope.() -> Unit = {},
+    backgroundColor: Color = MonkeyTheme.colors.primarySurface,
+    contentColor: Color = contentColorFor(backgroundColor),
+    elevation: Dp = AppBarDefaults.TopAppBarElevation
+) {
+    val defLeftSectionWidth = if (navigationIcon == null) withoutIconWidthSearch else AppBarHorizontalPadding
+    var leftSectionWidth by remember { mutableStateOf(defLeftSectionWidth) }
+    var rightSectionWidth by remember { mutableStateOf(-1f) }
+    var rightSectionPadding by remember { mutableStateOf(0f) }
+
+    MonkeyAppBarSearch(
+        backgroundColor,
+        contentColor,
+        elevation,
+        RectangleShape,
+        modifier
+    ) {
+
+        Row(
+            Modifier
+                .fillMaxHeight()
+                .weight(1f),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Start
+        ) {
+            if (leftSectionWidth != defLeftSectionWidth
+                || rightSectionPadding != 0f
+            ) {
+                ProvideTextStyle(value = MonkeyTheme.typography.subtitle1) {
+                    CompositionLocalProvider(
+                        LocalContentAlpha provides ContentAlpha.high,
+                        content = textfield
+                    )
+                }
+            }
+        }
+
+        CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+            with(LocalDensity.current) {
+                Row(
+                    Modifier
+                        .fillMaxHeight()
+                        .padding(start = rightSectionPadding.toDp())
+                        .onGloballyPositioned {
+                            rightSectionWidth = it.size.width.toFloat()
+                            if (leftSectionWidth == defLeftSectionWidth
+                                && rightSectionWidth != -1f
+                                && rightSectionPadding == 0f
+                            ) {
+                                /*
+                                 Find the maximum width of the sections (left or right).
+                                 As a result, both sections should have the same width.
+                                 */
+                                val maxWidth = max(
+                                    leftSectionWidth.toPx(),
+                                    rightSectionWidth
+                                )
+                                leftSectionWidth = maxWidth.toDp()
+                                rightSectionPadding = abs(rightSectionWidth - maxWidth)
+                            }
+                        },
+                    horizontalArrangement = Arrangement.End,
+                    verticalAlignment = Alignment.CenterVertically,
+                    content = actions
+                )
+            }
+        }
+    }
+}
+
 @Composable
 private fun MonkeyAppBar(
     backgroundColor: Color,
@@ -210,6 +313,33 @@ private fun MonkeyAppBar(
             Modifier
                 .fillMaxWidth()
                 .padding(contentPadding)
+                .height(AppBarHeight),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+            content = content
+        )
+    }
+}
+
+@Composable
+private fun MonkeyAppBarSearch(
+    backgroundColor: Color,
+    contentColor: Color,
+    elevation: Dp,
+    shape: Shape,
+    modifier: Modifier = Modifier,
+    content: @Composable RowScope.() -> Unit
+) {
+    Surface(
+        color = backgroundColor,
+        contentColor = contentColor,
+        elevation = elevation,
+        shape = shape,
+        modifier = modifier
+    ) {
+        Row(
+            Modifier
+                .fillMaxWidth()
                 .height(AppBarHeight),
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically,

@@ -1,7 +1,6 @@
 package com.choice.components
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.choice.compose.MonkeySurface

@@ -15,11 +15,12 @@ import com.google.accompanist.navigation.animation.composable
 
 fun NavGraphBuilder.composableRecipeDetail(navController: NavController, density: Density) {
     val enter = slideInVertically {
-        with(density) { -40.dp.roundToPx() }
+        with(density) { -100.dp.roundToPx() }
     } + expandVertically(
-        expandFrom = Alignment.Top
+        expandFrom = Alignment.Top,
+        clip = true
     ) + fadeIn(
-        initialAlpha = 0.3f
+        initialAlpha = 0f
     )
     composable(
         route = MonkeyScreen.RecipeDetail.route + "?recipeId={recipeId}",
@@ -35,17 +36,13 @@ fun NavGraphBuilder.composableRecipeDetail(navController: NavController, density
             enter
         },
         exitTransition = {
-            slideOutVertically {
-                with(density) { 200.dp.roundToPx() }
-            } + shrinkVertically(
-                shrinkTowards = Alignment.CenterVertically
-            ) + fadeOut()
+            fadeOut(targetAlpha = 0f)
         },
         popEnterTransition = {
             enter
         },
         popExitTransition = {
-            slideOutVertically() + shrinkVertically() + fadeOut()
+            fadeOut(targetAlpha = 0f)
         }
     ) {
         RecipeDetailUI(navController)

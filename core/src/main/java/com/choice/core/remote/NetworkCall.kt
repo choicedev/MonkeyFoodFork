@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.retryWhen
-import okio.IOException
 import retrofit2.Response
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -26,9 +25,9 @@ suspend fun <T: Any> performnetworkCall(
         val response = networkAPICall()
         if (response.isSuccessful) {
             response.body()?.let {
-                emit(IResult.OnSuccess(it))
-            } ?: emit(
-                IResult.OnFailed(
+                emit(IResult.OnSuccess(it)) } ?:
+                emit(
+                    IResult.OnFailed(
                     NetworkCallException("API call successful but empty response body")
                 )
             )

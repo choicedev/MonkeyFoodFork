@@ -4,5 +4,4 @@ import com.choice.model.Recipe
 
 data class RecipeState(
     val recipe: Recipe = Recipe(),
-    val id: Int = -1
 )

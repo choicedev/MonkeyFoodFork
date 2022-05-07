@@ -8,10 +8,9 @@ import androidx.room.TypeConverters
 import com.choice.local.dao.RecipeDao
 import com.choice.local.entity.RecipeEntity
 import com.choice.local.mapping.Converter
+import com.choice.monkeyfoodfork.database.AppDatabase.Companion.DATABASE_VERSION
 import javax.inject.Singleton
 
-private const val DATABASE_VERSION = 5
-private const val DATABASE_NAME = "monkeyrecipes_database.db"
 @Database(
     entities = [
         RecipeEntity::class
@@ -22,18 +21,10 @@ private const val DATABASE_NAME = "monkeyrecipes_database.db"
 @TypeConverters(Converter::class)
 abstract class AppDatabase : RoomDatabase() {
 
-    class Builder(private val application: Application) {
-        private val builder: RoomDatabase.Builder<AppDatabase>
-            get() = Room.databaseBuilder(
-                application.applicationContext,
-                AppDatabase::class.java,
-                DATABASE_NAME
-            )
-                .fallbackToDestructiveMigration()
+    abstract val recipeDao : RecipeDao
 
-        fun build(): AppDatabase = builder.build()
-
+    companion object {
+        const val DATABASE_VERSION = 5
+        const val DATABASE_NAME = "monkeyrecipes_db"
     }
-
-    abstract fun recipesResultsDao() : RecipeDao
 }

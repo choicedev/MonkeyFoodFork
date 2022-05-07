@@ -26,10 +26,11 @@ fun RecipeDetailUI(
     navController: NavController,
     viewModel: RecipeDetailViewModel = hiltViewModel()
 ) {
+    val state = viewModel.state
 
     LazyColumn {
         item { RecipeHeader(viewModel, navController) }
-        item { RecipeDescription(viewModel.state.recipe) }
+        item { RecipeDescription(state.recipe) }
     }
 
 }
@@ -40,14 +41,14 @@ fun RecipeHeader(
     navController: NavController
 ) {
 
-    val recipe = viewModel.state.recipe
+    val state = viewModel.state
 
     Header(
-        isFavorite = recipe.favorite,
-        urlImage = recipe.image,
+        isFavorite = state.recipe.favorite,
+        urlImage = state.recipe.image,
         navController = navController
     ) {
-        viewModel.onEvent(RecipeDetailEvent.OnFavoriteChange(recipe.id, !recipe.favorite))
+        viewModel.onEvent(RecipeDetailEvent.OnFavoriteChange)
     }
 }
 

@@ -1,6 +1,5 @@
 package com.choice.components
 
-import android.accounts.AuthenticatorDescription
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.runtime.Composable

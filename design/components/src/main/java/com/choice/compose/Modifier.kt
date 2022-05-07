@@ -7,7 +7,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import com.choice.theme.MonkeyTheme
 
@@ -24,7 +23,6 @@ fun Modifier.backgroundClip(
 fun Modifier.backgroundClip(
     color: Color,
     shape: Shape = MonkeyTheme.shapes.medium,
-    alpha: Float = 1.0f
 ) = this
     .background(color = color, shape = shape)
     .clip(shape)

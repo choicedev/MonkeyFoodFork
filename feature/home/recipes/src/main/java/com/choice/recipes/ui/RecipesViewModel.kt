@@ -3,38 +3,55 @@ package com.choice.recipes.ui
 import androidx.lifecycle.viewModelScope
 import com.choice.core.util.IResult
 import com.choice.core.viewModel.BaseViewModel
+import com.choice.model.Recipe
 import com.choice.recipes.util.RecipesEvent
 import com.choice.recipes.util.RecipesState
-import com.choice.param.FavoriteParam
-import com.choice.usecase.GetAllRecipesUseCase
-import com.choice.usecase.RecipeSearchQueryUseCase
-import com.choice.usecase.RecipeSetFavoriteUseCase
+import com.choice.usecase.RecipeUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import java.net.UnknownHostException
 import javax.inject.Inject
 
 @HiltViewModel
 class RecipesViewModel @Inject constructor(
-    private val getAllRecipesUseCases: GetAllRecipesUseCase,
-    private val recipeFavoriteUseCase: RecipeSetFavoriteUseCase,
-    private val recipeSearchQueryUseCase: RecipeSearchQueryUseCase
+    private val recipeUseCases: RecipeUseCases
 ) : BaseViewModel<RecipesState, RecipesEvent>(RecipesState()) {
 
-    override fun onEvent(event: RecipesEvent) {
-        viewModelScope.launch {
-            when (event) {
-                is RecipesEvent.OnFavoriteChange -> {
-                    onFavoriteChange(event.id, event.favorite)
-                }
+    private var recentFavoriteItem: Recipe? = null
 
-                is RecipesEvent.OnSearchQueryChange -> {
+    private var getRecipesJob: Job? = null
+
+    init {
+        viewModelScope.launch {
+            println("get recipes: ${getRecipes()}")
+            getRecipes()
+        }
+    }
+
+    override fun onEvent(event: RecipesEvent) {
+        when (event) {
+            is RecipesEvent.OnFavoriteChange -> {
+                viewModelScope.launch {
+                    onFavoriteChange(event.recipe)
+                    recentFavoriteItem = event.recipe
+                }
+            }
+
+            is RecipesEvent.OnRestoreFavorite -> {
+                viewModelScope.launch {
+                    recentFavoriteItem?.let {
+                        onFavoriteChange(it)
+                        return@launch
+                    }
+                    showSnackbar("Item not found")
+                }
+            }
+
+            is RecipesEvent.OnSearchQueryChange -> {
+                viewModelScope.launch {
                     state = state.copy(searchQuery = event.query)
                     onSearchChange()
                 }
@@ -42,33 +59,12 @@ class RecipesViewModel @Inject constructor(
         }
     }
 
-    private fun onFavoriteChange(
-        id: Int?,
-        favorite: Boolean
-    ) = viewModelScope.launch {
-        recipeFavoriteUseCase(
-            FavoriteParam(id ?: -1, favorite)
-        ).catch { showSnackbar("$it") }
-            .collect {
-                when (it) {
-                    is IResult.OnSuccess -> {
-                        if (state.searchQuery.isEmpty()) {
-                            getRecipes()
-                        } else {
-                            onSearchChange()
-                        }
-                    }
-                    is IResult.OnFailed -> {
-                        showSnackbar("Failed\n${it.throwable.message}")
-                    }
-                }
-            }
+    private suspend fun onFavoriteChange(recipe: Recipe) {
+        recipeUseCases.setFavorite(recipe)
     }
 
-    private fun onSearchChange(
-        query: String = state.searchQuery.lowercase(),
-    ) = viewModelScope.launch {
-        recipeSearchQueryUseCase(query)
+    private suspend fun onSearchChange(query: String = state.searchQuery.lowercase()) {
+        recipeUseCases.searchQuery(query)
             .catch { showSnackbar("${it.message}") }
             .collect { result ->
                 when (result) {
@@ -81,7 +77,7 @@ class RecipesViewModel @Inject constructor(
                     is IResult.OnLoading -> {
                         state = state.copy(
                             isLoading = result.isLoading,
-                            isLoadingText = result.isLoadingText
+                            isLoadingText = result.message
                         )
                     }
 
@@ -93,14 +89,19 @@ class RecipesViewModel @Inject constructor(
             }
     }
 
-    suspend fun getRecipes() {
-        getAllRecipesUseCases(Unit)
-            .collect {
+    private suspend fun getRecipes() {
+        getRecipesJob?.cancel()
+        getRecipesJob = recipeUseCases.getRecipes(Unit)
+            .onEach {
                 when (it) {
                     is IResult.OnSuccess -> {
-                        state = state.copy(
-                            recipeList = it.response
-                        )
+                        if(state.searchQuery.isEmpty()) {
+                            state = state.copy(
+                                recipeList = it.response
+                            )
+                        }else{
+                            onSearchChange()
+                        }
                     }
                     is IResult.OnFailed -> {
                         showSnackbar("Failed\n${it.throwable.message}")
@@ -111,10 +112,10 @@ class RecipesViewModel @Inject constructor(
                     is IResult.OnLoading -> {
                         state = state.copy(
                             isLoading = it.isLoading,
-                            isLoadingText = it.isLoadingText
+                            isLoadingText = it.message
                         )
                     }
                 }
-            }
+            }.launchIn(viewModelScope)
     }
 }

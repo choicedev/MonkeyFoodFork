@@ -1,18 +1,14 @@
 package com.choice.recipedetail.ui.components
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
-import androidx.compose.material.FloatingActionButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.transform.RoundedCornersTransformation
-import com.choice.animation.LikeAnimationButton
 import com.choice.compose.MonkeyImage
 import com.choice.compose.MonkeyRow
 import com.choice.compose.scrim
@@ -23,7 +19,7 @@ import com.choice.theme.MonkeyTheme
 @Composable
 fun Header(
     urlImage: String?,
-    isFavorite: Boolean,
+    isFavorite: Boolean?,
     navController: NavController,
     favoriteClick: () -> Unit
 ) {
@@ -55,7 +51,7 @@ fun Header(
         }
 
         RecipeDetailFlaotingButton(
-            isFavorite = isFavorite,
+            isFavorite = isFavorite ?: false,
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .offset(y = 25.dp)

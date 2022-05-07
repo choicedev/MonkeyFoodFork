@@ -12,19 +12,17 @@ import com.choice.design.util.UiEvent
 import com.choice.recipes.ui.compose.LazyGridLayout
 import com.choice.recipes.ui.compose.RecipeTopAppBar
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 @Composable
 fun RecipesUI(
     navController: NavController,
-    scaffoldState: ScaffoldState,
     mainController: NavController,
+    scaffoldState: ScaffoldState,
     viewModel: RecipesViewModel = hiltViewModel()
 ) {
     val state = viewModel.state
-    val scope = rememberCoroutineScope()
 
-    LaunchedEffect(true) {
+    LaunchedEffect(Unit) {
         viewModel.eventFlow.collectLatest {
             when (it) {
                 is UiEvent.ShowSnackbar -> {
@@ -36,20 +34,14 @@ fun RecipesUI(
         }
     }
 
-    SideEffect {
-        scope.launch {
-            viewModel.getRecipes()
-        }
-    }
-
     if (!state.isLoading) {
         MonkeyScaffold(
             topBar = {
-                RecipeTopAppBar(viewModel)
+                RecipeTopAppBar(navController)
             },
         ) {
             MonkeyColumn {
-                LazyGridLayout(scaffoldState, viewModel, mainController)
+                LazyGridLayout(scaffoldState, mainController)
             }
         }
     } else {
