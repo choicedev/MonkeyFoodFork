@@ -21,8 +21,9 @@ fun RecipeItem(
 
     item?.let {
         MonkeyColumn(
-            modifier = modifier,
-            verticalArrangement = Arrangement.Center
+            modifier = modifier.padding(MonkeyTheme.spacing.small),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.Start
         ) {
             Recipe(it, onFavoriteClick)
         }
@@ -35,28 +36,20 @@ private fun Recipe(
     item: Recipe,
     onFavoriteClick: () -> Unit,
 ) {
-    MonkeyDefaultColumn(
-        modifier = Modifier
-            .wrapContentSize()
-            .imePadding(),
-        verticalArrangement = Arrangement.Center
-
-    ) {
-        MonkeyImageRecipe(
-            url = item.image,
-            visible = item.favorite,
-            favoriteClick = onFavoriteClick
+    MonkeyImageRecipe(
+        url = item.image,
+        visible = item.favorite,
+        modifier = Modifier.aspectRatio(4f / 6f),
+        favoriteClick = onFavoriteClick
+    )
+    RecipeText(
+        item.title ?: "Title not found",
+        item.dateAdded ?: "00/00/0000",
+        item.publisher ?: "Not found publisher",
+        modifier = Modifier.paddingFromBaseline(
+            top = MonkeyTheme.spacing.extraSmall
         )
-        RecipeText(
-            item.title ?: "Title not found",
-            item.dateAdded ?: "00/00/0000",
-            item.publisher ?: "Not found publisher",
-            modifier = Modifier.paddingFromBaseline(
-                top = MonkeyTheme.spacing.extraSmall
-            )
-        )
-        Spacer(Modifier.height(MonkeyTheme.spacing.medium))
-    }
+    )
 }
 
 @Composable
@@ -74,7 +67,6 @@ private fun RecipeText(
         Spacer(Modifier.height(MonkeyTheme.spacing.small))
         Text(
             modifier = Modifier
-                .fillMaxWidth()
                 .height(MonkeyTheme.spacing.small),
             text = date,
             style = MonkeyTheme.typography.subtitle2.copy(
@@ -85,7 +77,6 @@ private fun RecipeText(
         Spacer(Modifier.height(MonkeyTheme.spacing.mediumSmall))
         Text(
             modifier = Modifier
-                .fillMaxWidth()
                 .height(MonkeyTheme.spacing.small),
             text = title,
             style = MonkeyTheme.typography.body2.copy(
@@ -96,7 +87,6 @@ private fun RecipeText(
         Spacer(Modifier.height(MonkeyTheme.spacing.mediumSmall))
         Text(
             modifier = Modifier
-                .fillMaxWidth()
                 .height(MonkeyTheme.spacing.medium),
             text = "by ${by?.capitalize()}",
             style = MonkeyTheme.typography.subtitle2.copy(

@@ -43,7 +43,7 @@ class RecipesViewModel @Inject constructor(
             is RecipesEvent.OnRestoreFavorite -> {
                 viewModelScope.launch {
                     recentFavoriteItem?.let {
-                        onFavoriteChange(it)
+                        onFavoriteChange(it.copy(favorite = !it.favorite))
                         return@launch
                     }
                     showSnackbar("Item not found")

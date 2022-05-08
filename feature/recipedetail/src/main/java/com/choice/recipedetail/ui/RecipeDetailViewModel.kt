@@ -50,9 +50,7 @@ class RecipeDetailViewModel @Inject constructor(
     private fun onFavoriteChange(
         recipe: Recipe = state.recipe,
     ) = viewModelScope.launch {
-        recipeUseCases.setFavorite(recipe.copy(
-            favorite = !state.recipe.favorite
-        ))
+        recipeUseCases.setFavorite(recipe)
     }
 
     private suspend fun onGetRecipeById(

@@ -16,11 +16,12 @@ fun MonkeyImageRecipe(
     url: String?,
     shapes: CornerBasedShape = MonkeyTheme.shapes.medium,
     visible: Boolean = false,
+    modifier: Modifier = Modifier,
     favoriteClick: () -> Unit,
 ) {
 
     Box(
-        modifier = Modifier.size(MonkeyTheme.spacing.exxxztraLarge),
+        modifier = modifier.size(MonkeyTheme.spacing.exxxztraLarge),
         contentAlignment = Alignment.TopEnd
     ) {
         MonkeyImage(

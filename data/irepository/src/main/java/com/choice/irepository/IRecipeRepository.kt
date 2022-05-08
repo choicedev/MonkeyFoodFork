@@ -12,8 +12,9 @@ import com.choice.local.mapping.toEntity
 import com.choice.repository.RecipeRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
+import javax.inject.Inject
 
-class IRecipeRepository  constructor(
+class IRecipeRepository @Inject constructor(
     @Network.Food2Fork private val webservice: ApiFoodFork,
     private val dao: RecipeDao
 ) : RecipeRepository {
@@ -28,10 +29,12 @@ class IRecipeRepository  constructor(
                     return@collect
                 }
             }
+            println("Loading")
 
             emit(IResult.OnLoading(true, "looking for ingredients..."))
 
             performnetworkCall {
+                println("CALL WEBSERVICE")
                 webservice.search()
             }.catch {
                 emit(IResult.OnFailed(it))
@@ -41,7 +44,7 @@ class IRecipeRepository  constructor(
                     is IResult.OnSuccess -> {
                         it.response.results?.let { recipe ->
                             dao.insert(recipe.map { i -> i.toEntity() })
-                            emit(IResult.OnSuccess(dao.getAll().first().map { i -> i.toDomain() }))
+                            emit(IResult.OnSuccess(recipe))
                             emit(IResult.OnLoading(false))
                             return@collect
                         }

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.accompanist:accompanist-systemuicontroller:0.21.4-beta@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/aa1ae32dbde72fabb51f84bfd18a544d/transformed/jetified-accompanist-systemuicontroller-0.21.4-beta/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/aa1ae32dbde72fabb51f84bfd18a544d/transformed/jetified-accompanist-systemuicontroller-0.21.4-beta/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/aa1ae32dbde72fabb51f84bfd18a544d/transformed/jetified-accompanist-systemuicontroller-0.21.4-beta/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.accompanist/accompanist-systemuicontroller/0.21.4-beta/b9492e07f47f6901bda85e5959ca6bc4a00fdf58/accompanist-systemuicontroller-0.21.4-beta-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.accompanist/accompanist-systemuicontroller/0.21.4-beta/50099e366c8592674208ea60e3d43b4cc208df08/accompanist-systemuicontroller-0.21.4-beta-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

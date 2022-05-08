@@ -1,5 +1,6 @@
 package com.choice.recipes.ui.compose
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
@@ -8,10 +9,15 @@ import androidx.compose.material.SnackbarResult
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.choice.components.MonkeyIllustration
+import com.choice.compose.StaggeredVerticalGrid
+import com.choice.compose.backgroundClip
 import com.choice.design.R
+import com.choice.design.util.BottomNavItem.Companion.items
 import com.choice.design.util.MonkeyScreen
 import com.choice.recipes.ui.RecipesViewModel
 import com.choice.recipes.ui.components.RecipeItem
@@ -54,6 +60,7 @@ fun LazyGridLayout(
                     RecipeItem(
                         modifier = Modifier
                             .fillMaxSize()
+                            .backgroundClip(Color.Transparent, MonkeyTheme.shapes.medium)
                             .clickable {
                                 mainController.navigate(MonkeyScreen.RecipeDetail.route + "?recipeId=${item.id}")
                             },
@@ -62,7 +69,7 @@ fun LazyGridLayout(
                             scope.launch {
                                 viewModel.onEvent(
                                     RecipesEvent.OnFavoriteChange(
-                                        item.copy(favorite = !item.favorite)
+                                        item
                                     )
                                 )
                                 delay(500)
@@ -116,3 +123,4 @@ private fun LazyGridLayout(
         }
     }
 }
+

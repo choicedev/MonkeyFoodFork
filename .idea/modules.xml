@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MonkeyFoodFork.iml" filepath="$PROJECT_DIR$/.idea/modules/MonkeyFoodFork.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MonkeyFoodFork.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MonkeyFoodFork.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/MonkeyFoodFork.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/MonkeyFoodFork.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/MonkeyFoodFork.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/MonkeyFoodFork.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/di/MonkeyFoodFork.data.di.iml" filepath="$PROJECT_DIR$/.idea/modules/data/di/MonkeyFoodFork.data.di.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/irepository/MonkeyFoodFork.data.irepository.iml" filepath="$PROJECT_DIR$/.idea/modules/data/irepository/MonkeyFoodFork.data.irepository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/local/MonkeyFoodFork.data.local.iml" filepath="$PROJECT_DIR$/.idea/modules/data/local/MonkeyFoodFork.data.local.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/remote/MonkeyFoodFork.data.remote.iml" filepath="$PROJECT_DIR$/.idea/modules/data/remote/MonkeyFoodFork.data.remote.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/MonkeyFoodFork.design.iml" filepath="$PROJECT_DIR$/.idea/modules/design/MonkeyFoodFork.design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/components/MonkeyFoodFork.design.components.iml" filepath="$PROJECT_DIR$/.idea/modules/design/components/MonkeyFoodFork.design.components.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/theme/MonkeyFoodFork.design.theme.iml" filepath="$PROJECT_DIR$/.idea/modules/design/theme/MonkeyFoodFork.design.theme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/MonkeyFoodFork.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/MonkeyFoodFork.domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/model/MonkeyFoodFork.domain.model.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/model/MonkeyFoodFork.domain.model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/repository/MonkeyFoodFork.domain.repository.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/repository/MonkeyFoodFork.domain.repository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/MonkeyFoodFork.feature.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/MonkeyFoodFork.feature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.iml" />
+    </modules>
+  </component>
+</project>

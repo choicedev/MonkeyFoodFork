@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.accompanist:accompanist-placeholder-material:0.21.4-beta@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/f438261be6d1f44ab85fb15fdc899ef0/transformed/jetified-accompanist-placeholder-material-0.21.4-beta/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f438261be6d1f44ab85fb15fdc899ef0/transformed/jetified-accompanist-placeholder-material-0.21.4-beta/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f438261be6d1f44ab85fb15fdc899ef0/transformed/jetified-accompanist-placeholder-material-0.21.4-beta/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.accompanist/accompanist-placeholder-material/0.21.4-beta/29aed835b282d7d6437eed7130345b995dc5ff2b/accompanist-placeholder-material-0.21.4-beta-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.accompanist/accompanist-placeholder-material/0.21.4-beta/2061059b59e72c228326c555eeeb30b7253c4c3a/accompanist-placeholder-material-0.21.4-beta-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

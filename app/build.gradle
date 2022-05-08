@@ -27,6 +27,7 @@ android {
         debug {
             buildConfigField "String", "API_VERSION", "\"-DEV\""
             minifyEnabled false
+            debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
