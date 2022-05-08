@@ -32,7 +32,7 @@ fun BottomNavHost(
         }
 
         composable(route = BottomNavItem.Info.route) {
-            Text(modifier = Modifier.statusBarsPadding(), text = "INFO")
+            Text(modifier = Modifier.statusBarsPadding(), text = "INFOAS")
         }
     }
 }
