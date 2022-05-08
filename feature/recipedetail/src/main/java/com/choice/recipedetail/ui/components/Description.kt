@@ -72,7 +72,7 @@ fun Description(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(MonkeyTheme.spacing.extraSmall),
-                text = "${index + 1} - ${item.capitalize()}",
+                text = "●  ${item.capitalize()}",
                 style = MonkeyTheme.typography.subtitle2.copy(
                     fontWeight = FontWeight.Normal,
                     color = MonkeyTheme.colors.onSurface

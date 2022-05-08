@@ -1,8 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.accompanist:accompanist-placeholder:0.21.4-beta@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5242372ad9938f9c277d39aee0d6c36a/transformed/jetified-accompanist-placeholder-0.21.4-beta/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5242372ad9938f9c277d39aee0d6c36a/transformed/jetified-accompanist-placeholder-0.21.4-beta/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3a880db18fde2495cb95a028cec3a9b0/transformed/jetified-accompanist-placeholder-0.21.4-beta/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5242372ad9938f9c277d39aee0d6c36a/transformed/jetified-accompanist-placeholder-0.21.4-beta/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5242372ad9938f9c277d39aee0d6c36a/transformed/jetified-accompanist-placeholder-0.21.4-beta/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>

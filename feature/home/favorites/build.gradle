@@ -1,0 +1,75 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdk 30
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':core')
+    implementation project(path: ':domain:usecase')
+    implementation project(path: ':design:theme')
+
+    api jetpackCompose.composeUI
+    api jetpackCompose.composeTooling
+    api jetpackCompose.composeFoundation
+    api jetpackCompose.composeMaterial
+    api jetpackCompose.composeCore
+    api jetpackCompose.composeExtended
+    api jetpackCompose.composeLiveData
+    api jetpackCompose.composeNavigation
+    api jetpackCompose.composeRuntime
+
+    implementation coil.imageLoader
+
+    implementation accompanist.systemUI
+    implementation accompanist.insetsUI
+    implementation accompanist.insets
+    implementation accompanist.swipeRefresh
+    implementation accompanist.navigation
+    implementation accompanist.placeMaterial
+    implementation accompanist.placeHolder
+
+    implementation daggerHilt.main
+
+    kapt daggerHilt.androidCompiler
+    kapt daggerHilt.compiler
+    implementation daggerHilt.viewModel
+    implementation daggerHilt.navigation
+    implementation database.room
+    kapt database.roomCompiler
+    implementation database.roomKtx
+}

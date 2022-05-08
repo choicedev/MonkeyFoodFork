@@ -237,6 +237,7 @@
     <orderEntry type="module" module-name="MonkeyFoodFork.design" />
     <orderEntry type="module" module-name="MonkeyFoodFork.design.components" />
     <orderEntry type="module" module-name="MonkeyFoodFork.feature.home.recipes" />
+    <orderEntry type="module" module-name="MonkeyFoodFork.feature.home.favorites" />
     <orderEntry type="module" module-name="MonkeyFoodFork.design.theme" />
     <orderEntry type="module" module-name="MonkeyFoodFork.core" />
     <orderEntry type="module" module-name="MonkeyFoodFork.domain.model" />

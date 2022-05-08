@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.choice.design.util.BottomNavItem
+import com.choice.favorites.ui.FavoriteUI
 import com.choice.recipes.navigation.composableRecipes
 import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.navigation.animation.AnimatedNavHost
@@ -27,7 +28,7 @@ fun BottomNavHost(
         composableRecipes(navController, mainController, scaffoldState)
 
         composable(route = BottomNavItem.Favorite.route) {
-            Text("test")
+            FavoriteUI()
         }
 
         composable(route = BottomNavItem.Info.route) {

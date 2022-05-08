@@ -43,6 +43,7 @@ dependencies {
     implementation project(":design:components")
     implementation project(":domain:model")
     implementation project(":feature:home:recipes")
+    implementation project(":feature:home:favorites")
 
 
     api jetpackCompose.composeUI

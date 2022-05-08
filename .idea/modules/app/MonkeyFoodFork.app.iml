@@ -269,6 +269,7 @@
     <orderEntry type="module" module-name="MonkeyFoodFork.feature.splash" />
     <orderEntry type="module" module-name="MonkeyFoodFork.feature.home" />
     <orderEntry type="module" module-name="MonkeyFoodFork.feature.home.recipes" />
+    <orderEntry type="module" module-name="MonkeyFoodFork.feature.home.favorites" />
     <orderEntry type="module" module-name="MonkeyFoodFork.feature.recipedetail" />
     <orderEntry type="module" module-name="MonkeyFoodFork.data.remote" />
     <orderEntry type="module" module-name="MonkeyFoodFork.data.di" />

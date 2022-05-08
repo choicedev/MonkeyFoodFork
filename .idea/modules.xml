@@ -19,6 +19,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/MonkeyFoodFork.feature.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/MonkeyFoodFork.feature.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/favorites/MonkeyFoodFork.feature.home.favorites.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/favorites/MonkeyFoodFork.feature.home.favorites.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.iml" />

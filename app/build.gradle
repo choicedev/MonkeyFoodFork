@@ -48,7 +48,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion "1.1.0"
+        kotlinCompilerExtensionVersion "1.1.1"
     }
     packagingOptions {
         resources {
@@ -75,6 +75,7 @@ dependencies {
     implementation project(path: ':feature:splash')
     implementation project(path: ':feature:home')
     implementation project(path: ':feature:home:recipes')
+    implementation project(path: ':feature:home:favorites')
     implementation project(path: ':feature:recipedetail')
     implementation accompanist.navigation
 
