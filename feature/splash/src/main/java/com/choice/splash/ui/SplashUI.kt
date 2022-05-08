@@ -23,7 +23,11 @@ fun SplashUI(
         visible = !visible
         delay(1000*3)
         visible = !visible
-        navController.navigate(MonkeyScreen.Main.route)
+        navController.navigate(MonkeyScreen.Main.route){
+            popUpTo(MonkeyScreen.Splash.route) {
+                inclusive = true
+            }
+        }
     }
 
     MonkeyBackgroundUI {

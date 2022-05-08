@@ -35,7 +35,7 @@ fun MonkeyTitle(
         ) + fadeIn(),
         exit = shrinkHorizontally(
             shrinkTowards = Alignment.Start,
-            animationSpec = tween(1000)
+            animationSpec = tween(500)
         ) + fadeOut(
             targetAlpha = 0.8f
         )
