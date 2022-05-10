@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.choice.theme.MonkeyTheme
 
 @Composable
 fun MonkeySurface(
@@ -20,7 +21,7 @@ fun MonkeySurface(
     color: Color = MaterialTheme.colors.background,
     contentColor: Color = contentColorFor(color),
     border: BorderStroke? = null,
-    elevation: Dp = 0.dp,
+    elevation: Dp = MonkeyTheme.elevation.default,
     content: @Composable () -> Unit
 ) {
     Surface(

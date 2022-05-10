@@ -18,8 +18,7 @@ inline fun MonkeyColumn(
 ) {
     Column(
         modifier = modifier.padding(
-            start = MonkeyTheme.spacing.extraMedium,
-            end = MonkeyTheme.spacing.extraMedium
+            MonkeyTheme.spacing.extraSmall,
         ),
         verticalArrangement = verticalArrangement,
         horizontalAlignment = horizontalAlignment,

@@ -38,18 +38,6 @@ fun Header(
             navController = navController
         )
 
-        MonkeyRow(
-            modifier = Modifier
-                .align(Alignment.BottomStart)
-        ) {
-            Divider(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                color = MonkeyTheme.colors.secondary,
-                thickness = MonkeyTheme.spacing.extraSmall
-            )
-        }
-
         RecipeDetailFlaotingButton(
             isFavorite = isFavorite ?: false,
             modifier = Modifier

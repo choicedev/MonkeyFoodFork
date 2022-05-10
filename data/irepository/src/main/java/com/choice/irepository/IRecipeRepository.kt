@@ -21,44 +21,50 @@ class IRecipeRepository @Inject constructor(
 
     override suspend fun getAllRecipes(): Flow<IResult<List<Recipe>>> {
         return flow {
-            println("REPOSITORY")
-            dao.getAll().collect{
-                if(it.isNotEmpty()){
-                    println("$it")
-                    emit(IResult.OnSuccess(it.map{i -> i.toDomain()}))
+
+            dao.getAll().collect {
+                if (it.isNotEmpty()) {
+                    emit(IResult.OnSuccess(it.map { i -> i.toDomain() }))
                     return@collect
                 }
-            }
-            println("Loading")
 
-            emit(IResult.OnLoading(true, "looking for ingredients..."))
 
-            performnetworkCall {
-                println("CALL WEBSERVICE")
-                webservice.search()
-            }.catch {
-                emit(IResult.OnFailed(it))
-                return@catch
-            }.collect {
-                when (it) {
-                    is IResult.OnSuccess -> {
-                        it.response.results?.let { recipe ->
-                            dao.insert(recipe.map { i -> i.toEntity() })
-                            emit(IResult.OnSuccess(recipe))
-                            emit(IResult.OnLoading(false))
-                            return@collect
+                emit(IResult.OnLoading(true, "looking for ingredients..."))
+
+                performnetworkCall {
+                    webservice.search()
+                }.catch {
+                    emit(IResult.OnFailed(it))
+                    return@catch
+                }.collect {
+                    when (it) {
+                        is IResult.OnSuccess -> {
+                            it.response.results?.let { recipe ->
+                                dao.insert(recipe.map { i -> i.toEntity() })
+                                emit(IResult.OnSuccess(recipe))
+                                emit(IResult.OnLoading(false))
+                                return@collect
+                            }
+                                ?: emit(IResult.OnFailed(RepositoryException("list is null\n\n${it.response.results}")))
                         }
-                            ?: emit(IResult.OnFailed(RepositoryException("list is null\n\n${it.response.results}")))
+
+                        is IResult.OnFailed -> {
+                            emit(IResult.OnLoading(false))
+                            emit(IResult.OnFailed(it.throwable))
+                        }
                     }
 
-                    is IResult.OnFailed -> {
-                        emit(IResult.OnFailed(it.throwable))
-                    }
                 }
-
             }
-            emit(IResult.OnLoading(false))
         }.flowOn(Dispatchers.IO)
+    }
+
+    override suspend fun getAllFavorites(): Flow<IResult<List<Recipe>>> {
+        return flow{
+            dao.getAllFavorites().collect{
+                emit(IResult.OnSuccess(it.map { i -> i.toDomain() }))
+            }
+        }
     }
 
 

@@ -29,13 +29,13 @@ import kotlin.math.max
 fun MonkeyCenterTopAppBar(
     title: String,
     modifier: Modifier = Modifier,
-    textColor: Color = MonkeyTheme.colors.onSurface,
+    textColor: Color = MonkeyTheme.colors.primaryVariant,
     backColor: Color = textColor,
     actions: @Composable RowScope.() -> Unit = {},
     backgroundColor: Color = MonkeyTheme.colors.background,
     contentColor: Color = contentColorFor(backgroundColor),
     onBack: (() -> Unit)? = null,
-    elevation: Dp = 0.dp
+    elevation: Dp = MonkeyTheme.elevation.default
 ) {
     CenterTopAppBar(
         modifier = modifier,
@@ -80,7 +80,7 @@ fun MonkeyCenterSearchTopAppBar(
     backgroundColor: Color = MonkeyTheme.colors.background,
     contentColor: Color = contentColorFor(backgroundColor),
     navigateUp: (() -> Unit)? = null,
-    elevation: Dp = 0.dp
+    elevation: Dp = MonkeyTheme.elevation.default
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
 
@@ -88,7 +88,7 @@ fun MonkeyCenterSearchTopAppBar(
         modifier = modifier,
         textfield = {
             MonkeyTextField(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.height(56.dp),
                 value = value,
                 onValueChange = onValueChange,
                 placeholder = placeholder,

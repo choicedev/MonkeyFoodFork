@@ -13,6 +13,9 @@ interface RecipeDao : BaseDao<RecipeEntity> {
     @Query("SELECT * FROM Recipes")
     fun getAll(): Flow<List<RecipeEntity>>
 
+    @Query("SELECT * FROM Recipes WHERE favorite = 1")
+    fun getAllFavorites(): Flow<List<RecipeEntity>>
+
     @Query("SELECT * FROM Recipes WHERE :id = id")
     suspend fun getById(id: Int): RecipeEntity?
 

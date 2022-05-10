@@ -73,6 +73,9 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../../data/di/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../../data/di/src/main/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../../data/di/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../../data/di/build/generated/res/resValues/androidTest/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../../data/di/build/generated/source/kapt/debugUnitTest" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../../data/di/build/generated/source/kaptKotlin/debugUnitTest" isTestSource="true" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/../../../../data/di/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../../data/di/build" />
     </content>

@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import com.choice.theme.MonkeyTheme
+import kotlinx.coroutines.delay
 
 @Composable
 fun MonkeyBar(
@@ -19,11 +20,12 @@ fun MonkeyBar(
     var visible by remember{
         mutableStateOf(false)
     }
-    val density = LocalDensity.current
 
 
     LaunchedEffect(key1 = true){
         visible = snackbarData.message.isNotEmpty()
+        delay(1000*9)
+        visible = false
     }
 
     AnimatedVisibility(

@@ -76,8 +76,6 @@ private fun RecipeText(
         )
         Spacer(Modifier.height(MonkeyTheme.spacing.mediumSmall))
         Text(
-            modifier = Modifier
-                .height(MonkeyTheme.spacing.small),
             text = title,
             style = MonkeyTheme.typography.body2.copy(
                 color = MonkeyTheme.colors.onSurface

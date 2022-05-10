@@ -39,9 +39,10 @@ android {
 
 dependencies {
 
-    implementation project(path: ':core')
-    implementation project(path: ':domain:usecase')
-    implementation project(path: ':design:theme')
+    implementation project(":design")
+    implementation project(":design:components")
+    implementation project(":domain:model")
+
 
     api jetpackCompose.composeUI
     api jetpackCompose.composeTooling
@@ -62,8 +63,11 @@ dependencies {
     implementation accompanist.navigation
     implementation accompanist.placeMaterial
     implementation accompanist.placeHolder
+    implementation project(path: ':design:theme')
 
     implementation daggerHilt.main
+    implementation project(path: ':core')
+    implementation project(path: ':domain:usecase')
 
     kapt daggerHilt.androidCompiler
     kapt daggerHilt.compiler

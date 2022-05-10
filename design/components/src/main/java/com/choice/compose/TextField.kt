@@ -87,7 +87,7 @@ fun MonkeyTextField(
         MonkeyTheme.shapes.medium,
     colors: TextFieldColors = monkeyTextFieldColors()
 ) {
-    MonkeyColumn {
+    MonkeyDefaultColumn {
         TextField(
             value,
             onValueChange,

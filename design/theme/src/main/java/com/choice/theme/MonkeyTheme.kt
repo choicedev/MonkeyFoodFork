@@ -28,4 +28,9 @@ object MonkeyTheme {
         @ReadOnlyComposable
         get() = LocalSpacing.current
 
+    val elevation: Elevation
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalElevation.current
+
 }
