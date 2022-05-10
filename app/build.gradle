@@ -101,9 +101,6 @@ dependencies {
     implementation library.constraintlayout
     implementation library.coreKtx
 
-    implementation platform('com.google.firebase:firebase-bom:26.0.0')
-    api firebase.analytics
-
     implementation accompanist.systemUI
     implementation accompanist.insetsUI
 
