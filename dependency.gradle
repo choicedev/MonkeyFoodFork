@@ -31,10 +31,8 @@ ext {
             systemUI        : "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion",
             insetsUI        : "com.google.accompanist:accompanist-insets-ui:$accompanistVersion",
             insets          : "com.google.accompanist:accompanist-insets:$accompanistVersion",
-            swipeRefresh    : "com.google.accompanist:accompanist-swiperefresh:$accompanistVersion",
             navigation      : "com.google.accompanist:accompanist-navigation-animation:$accompanistVersion",
             placeMaterial   : "com.google.accompanist:accompanist-placeholder-material:$accompanistVersion",
-            placeHolder     : "com.google.accompanist:accompanist-placeholder:$accompanistVersion"
     ]
 
     library = [
@@ -67,16 +65,6 @@ ext {
             mockWebServer   : 'com.squareup.okhttp3:mockwebserver:4.9.3',
             truth           : "com.google.truth:truth:1.1.3",
             coreTesting     : 'androidx.arch.core:core-testing:2.1.0'
-    ]
-
-    firebase = [
-            analytics              : "com.google.firebase:firebase-analytics-ktx",
-            authLibrary            : "com.google.firebase:firebase-auth-ktx",
-            functionLibray         : "com.google.firebase:firebase-functions-ktx",
-            firestoreLibrary       : "com.google.firebase:firebase-firestore-ktx",
-            realTimeDatabaseLibrary: "com.google.firebase:firebase-database-ktx",
-
-
     ]
 
     kotlinLibrary = [

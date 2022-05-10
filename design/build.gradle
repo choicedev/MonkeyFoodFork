@@ -52,8 +52,5 @@ dependencies {
     implementation accompanist.systemUI
     implementation accompanist.insetsUI
     implementation accompanist.insets
-    implementation accompanist.swipeRefresh
     implementation accompanist.navigation
-    implementation accompanist.placeMaterial
-    implementation accompanist.placeHolder
 }
