@@ -4,5 +4,6 @@ data class RecipeUseCases(
     val getRecipes: GetRecipesUseCases,
     val getRecipeById: RecipeGetByIdUseCases,
     val searchQuery: RecipeSearchQueryUseCases,
-    val setFavorite: RecipeSetFavoriteUseCases
+    val setFavorite: RecipeSetFavoriteUseCases,
+    val getFavorites: RecipeGetFavoritesUseCases
 )

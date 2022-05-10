@@ -39,7 +39,6 @@ fun RecipeTopAppBar(
     ) {
         MonkeyCenterTopAppBar(
             title = "MonkeyFood",
-            textColor = MonkeyTheme.colors.primaryVariant,
             actions = {
                 MonkeyIconButton(icon = Icons.Filled.Search) {
                     visible = false

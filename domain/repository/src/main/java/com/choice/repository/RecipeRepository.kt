@@ -9,6 +9,8 @@ interface RecipeRepository {
 
     suspend fun getAllRecipes(): Flow<IResult<List<Recipe>>>
 
+    suspend fun getAllFavorites(): Flow<IResult<List<Recipe>>>
+
     suspend fun setFavorite(recipe: Recipe)
 
     suspend fun searchRecipe(query: String): Flow<IResult<List<Recipe>>>

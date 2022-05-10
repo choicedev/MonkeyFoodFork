@@ -28,7 +28,7 @@ fun BottomNavHost(
         composableRecipes(navController, mainController, scaffoldState)
 
         composable(route = BottomNavItem.Favorite.route) {
-            FavoriteUI()
+            FavoriteUI(scaffoldState, mainController)
         }
 
         composable(route = BottomNavItem.Info.route) {

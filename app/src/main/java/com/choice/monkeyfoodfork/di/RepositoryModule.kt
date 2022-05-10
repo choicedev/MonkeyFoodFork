@@ -32,7 +32,8 @@ object RepositoryModule {
             getRecipes = GetRecipesUseCases(repository),
             getRecipeById = RecipeGetByIdUseCases(repository),
             searchQuery = RecipeSearchQueryUseCases(repository),
-            setFavorite = RecipeSetFavoriteUseCases(repository)
+            setFavorite = RecipeSetFavoriteUseCases(repository),
+            getFavorites = RecipeGetFavoritesUseCases(repository)
         )
     }
 }
