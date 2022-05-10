@@ -22,10 +22,10 @@
 <br />
 <div align="center">
   <a href="https://github.com/choicedev/MonkeyFoodFork">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="/design/src/main/ic_monkeyapp-playstore.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Monkey Food2Fork</h3>
+<h3 align="center">Monkey Food</h3>
 
   <p align="center">
     Aplicativo de receitas, consumindo uma API FREE 
@@ -56,9 +56,11 @@ Criei este aplicativo para praticar o back-end do Mobile
   - Compose - Um KIT de ferramentas morderno para a construção de interface do Android nativa.
   - ViewModel - Suporte de dados relacionado à UI, consciente do ciclo de vida.
   - Room - construir banco de dados.
+  - Coil - biblioteca de carregamento de imagens para Android apoiada por Kotlin Coroutines,
+  - Accompanist - bibliotecas que visam complementar o Jetpack Compose com recursos que ainda não estão disponíveis
 - Arquitetura
   - MVVM (Declarative View - ViewModel - Model)
-- Material Design & Animações
+- Material Design
 
 ### Linguagens usada
 
@@ -71,7 +73,7 @@ Criei este aplicativo para praticar o back-end do Mobile
 ## Licença
 
 ```xml
-Designed and developed by 2020 skydoves (Jaewoong Eum)
+Designed and developed by 2022 skydoves (Jaewoong Eum)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -92,16 +94,16 @@ limitations under the License.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[repo-shield]: https://img.shields.io/github/repo-size/choicedev/Notes-Application?style=for-the-badge
-[contributors-shield]: https://img.shields.io/github/contributors/choicedev/Notes-Application.svg?style=for-the-badge
-[contributors-url]: https://github.com/choicedev/Notes-Application/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/choicedev/Notes-Application.svg?style=for-the-badge
-[forks-url]: https://github.com/choicedev/Notes-Application/network/members
-[stars-shield]: https://img.shields.io/github/stars/choicedev/Notes-Application.svg?style=for-the-badge
-[stars-url]: https://github.com/choicedev/Notes-Application/stargazers
-[issues-shield]: https://img.shields.io/github/issues/choicedev/Notes-Application.svg?style=for-the-badge
-[issues-url]: https://github.com/choicedev/Notes-Application/issues
-[license-shield]: https://img.shields.io/github/license/choicedev/Notes-Application.svg?style=for-the-badge
-[license-url]: https://github.com/choicedev/Notes-Application/blob/master/LICENSE.txt
+[repo-shield]: https://img.shields.io/github/repo-size/choicedev/MonkeyFoodFork?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/choicedev/MonkeyFoodFork.svg?style=for-the-badge
+[contributors-url]: https://github.com/choicedev/MonkeyFoodFork/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/choicedev/MonkeyFoodFork.svg?style=for-the-badge
+[forks-url]: https://github.com/choicedev/MonkeyFoodFork/network/members
+[stars-shield]: https://img.shields.io/github/stars/choicedev/MonkeyFoodFork.svg?style=for-the-badge
+[stars-url]: https://github.com/choicedev/MonkeyFoodFork/stargazers
+[issues-shield]: https://img.shields.io/github/issues/choicedev/MonkeyFoodFork.svg?style=for-the-badge
+[issues-url]: https://github.com/choicedev/MonkeyFoodFork/issues
+[license-shield]: https://img.shields.io/github/license/choicedev/MonkeyFoodFork.svg?style=for-the-badge
+[license-url]: https://github.com/choicedev/MonkeyFoodFork/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/fabriciozamora/
