@@ -6,11 +6,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
-import com.choice.components.MonkeyImageRecipe
 import com.choice.compose.*
 import com.choice.model.Recipe
 import com.choice.theme.MonkeyTheme
-import com.google.accompanist.insets.imePadding
+import java.util.*
 
 @Composable
 fun RecipeItem(
@@ -86,7 +85,7 @@ private fun RecipeText(
         Text(
             modifier = Modifier
                 .height(MonkeyTheme.spacing.medium),
-            text = "by ${by?.capitalize()}",
+            text = "by ${by.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}",
             style = MonkeyTheme.typography.subtitle2.copy(
                 color = MonkeyTheme.colors.onSurface.copy(
                     alpha = 0.5f
