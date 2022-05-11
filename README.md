@@ -28,7 +28,7 @@
 <h3 align="center">Monkey Food</h3>
 
   <p align="center">
-    Aplicativo de receitas, consumindo uma API FREE 
+    Aplicativo de receitas, consumindo a API Food2Fork.ca
   </p>
 
 
@@ -42,10 +42,9 @@
 ## Sobre o projeto
 
 <p align="center">
-<img src="/images/view_dem.gif" width="32%"/>
-<img src="/images/view_demo.gif" width="32%"/>
+<img src="/images/monkey_gig.gif" width="32%"/>
   
-Criei este aplicativo para praticar o back-end do Mobile
+Criei este aplicativo para praticar o consumo de API
 </p>
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
