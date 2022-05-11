@@ -7,7 +7,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.choice.components.MonkeyCenterSearchTopAppBar
+import com.choice.compose.MonkeyCenterSearchTopAppBar
 import com.choice.components.MonkeyIconButton
 import com.choice.recipes.ui.RecipesViewModel
 import com.choice.recipes.util.RecipesEvent

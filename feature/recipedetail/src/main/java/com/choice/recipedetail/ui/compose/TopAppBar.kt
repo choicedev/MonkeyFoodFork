@@ -4,7 +4,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
-import com.choice.components.MonkeyCenterTopAppBar
+import com.choice.compose.MonkeyCenterTopAppBar
 import com.choice.theme.MonkeyTheme
 
 @Composable

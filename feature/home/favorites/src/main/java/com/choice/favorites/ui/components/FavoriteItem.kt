@@ -11,11 +11,11 @@ import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.transform.RoundedCornersTransformation
-import com.choice.components.MonkeyImageRecipe
 import com.choice.compose.*
 import com.choice.model.Recipe
 import com.choice.theme.MonkeyDeliveryTheme
 import com.choice.theme.MonkeyTheme
+import java.util.*
 
 
 @Composable
@@ -68,7 +68,7 @@ private fun FavoriteText(
             )
             Spacer(Modifier.height(MonkeyTheme.spacing.small))
             Text(
-                text = "by ${publisher?.capitalize()}",
+                text = "by ${publisher?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}",
                 style = MonkeyTheme.typography.subtitle2.copy(
                     fontWeight = FontWeight.Normal,
                     color = MonkeyTheme.colors.primaryVariant

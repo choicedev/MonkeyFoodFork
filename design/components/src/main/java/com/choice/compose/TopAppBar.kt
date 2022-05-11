@@ -1,4 +1,4 @@
-package com.choice.components
+package com.choice.compose
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.choice.compose.MonkeyTextField
+import com.choice.components.MonkeyIconButton
 import com.choice.theme.MonkeyTheme
 import kotlin.math.abs
 import kotlin.math.max

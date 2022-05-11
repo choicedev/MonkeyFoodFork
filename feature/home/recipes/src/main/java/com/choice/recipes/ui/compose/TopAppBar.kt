@@ -8,12 +8,11 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.choice.components.MonkeyCenterTopAppBar
+import com.choice.compose.MonkeyCenterTopAppBar
 import com.choice.components.MonkeyIconButton
 import com.choice.recipes.ui.RecipesViewModel
 import com.choice.recipes.ui.components.SearchTopAppBar
 import com.choice.recipes.util.RecipesEvent
-import com.choice.theme.MonkeyTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import com.choice.compose.IconText
 import com.choice.theme.MonkeyTheme
+import java.util.*
 
 
 @Composable
@@ -44,7 +45,8 @@ fun Description(
             modifier = Modifier
                 .fillMaxWidth()
                 .paddingFromBaseline(top = MonkeyTheme.spacing.large),
-            text = author?.capitalize().toString(),
+            text = author?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+                .toString(),
             textStyle = MonkeyTheme.typography.subtitle1,
             icon = Icons.Filled.Face
         )
@@ -53,7 +55,8 @@ fun Description(
             modifier = Modifier
                 .fillMaxWidth()
                 .paddingFromBaseline(top = MonkeyTheme.spacing.large),
-            text = date?.capitalize().toString(),
+            text = date?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+                .toString(),
             textStyle = MonkeyTheme.typography.subtitle1,
             icon = Icons.Filled.Today
         )
@@ -72,7 +75,7 @@ fun Description(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(MonkeyTheme.spacing.extraSmall),
-                text = "●  ${item.capitalize()}",
+                text = "●  ${item.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }}",
                 style = MonkeyTheme.typography.subtitle2.copy(
                     fontWeight = FontWeight.Normal,
                     color = MonkeyTheme.colors.onSurface
