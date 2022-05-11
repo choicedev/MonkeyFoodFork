@@ -44,7 +44,7 @@
 <p align="center">
 <img src="/images/monkey_gif.gif" width="32%"/>
   
-Criei este aplicativo com o objetivo de praticar o consumo de uma API usando o Retrofit/Hilt Dagger 
+Criei este aplicativo com o objetivo de praticar o consumo de API usando o Retrofit/Hilt Dagger e a Room para salvar a lista/favoritos
 </p>
 <p align="right">(<a href="#top">voltar ao topo</a>)</p>
 
