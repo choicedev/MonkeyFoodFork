@@ -42,7 +42,7 @@
 ## Sobre o projeto
 
 <p align="center">
-<img src="/images/monkey_gig.gif" width="32%"/>
+<img src="/images/monkey_gif.gif" width="32%"/>
   
 Criei este aplicativo para praticar o consumo de API
 </p>
