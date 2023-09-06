@@ -5,15 +5,15 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     defaultConfig {
         packagingOptions {
             resources.excludes.add("META-INF/*")
         }
         applicationId "com.choice.monkeyfoodfork"
-        minSdk 21
-        targetSdk 31
+        minSdk 31
+        targetSdk 33
         versionCode 1
         versionName "0.1 Beta"
 
