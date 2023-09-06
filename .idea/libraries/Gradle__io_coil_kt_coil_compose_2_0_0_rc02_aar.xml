@@ -1,9 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: io.coil-kt:coil-compose:2.0.0-rc02@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/712bc2dec9f1996a35c8a2db22c783f3/transformed/jetified-coil-compose-2.0.0-rc02/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d5f802e0c4261093a275ece8a0a45ce6/transformed/jetified-coil-compose-2.0.0-rc02/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d5f802e0c4261093a275ece8a0a45ce6/transformed/jetified-coil-compose-2.0.0-rc02/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d5f802e0c4261093a275ece8a0a45ce6/transformed/jetified-coil-compose-2.0.0-rc02/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>

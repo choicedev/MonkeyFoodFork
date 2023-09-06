@@ -4,25 +4,76 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MonkeyFoodFork.iml" filepath="$PROJECT_DIR$/.idea/modules/MonkeyFoodFork.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MonkeyFoodFork.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MonkeyFoodFork.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MonkeyFoodFork.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MonkeyFoodFork.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MonkeyFoodFork.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MonkeyFoodFork.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MonkeyFoodFork.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MonkeyFoodFork.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/MonkeyFoodFork.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/MonkeyFoodFork.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/MonkeyFoodFork.core.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/MonkeyFoodFork.core.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/MonkeyFoodFork.core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/MonkeyFoodFork.core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/MonkeyFoodFork.core.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/MonkeyFoodFork.core.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/MonkeyFoodFork.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/MonkeyFoodFork.data.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/di/MonkeyFoodFork.data.di.iml" filepath="$PROJECT_DIR$/.idea/modules/data/di/MonkeyFoodFork.data.di.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/di/MonkeyFoodFork.data.di.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/di/MonkeyFoodFork.data.di.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/di/MonkeyFoodFork.data.di.main.iml" filepath="$PROJECT_DIR$/.idea/modules/data/di/MonkeyFoodFork.data.di.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/di/MonkeyFoodFork.data.di.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/di/MonkeyFoodFork.data.di.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/irepository/MonkeyFoodFork.data.irepository.iml" filepath="$PROJECT_DIR$/.idea/modules/data/irepository/MonkeyFoodFork.data.irepository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/irepository/MonkeyFoodFork.data.irepository.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/irepository/MonkeyFoodFork.data.irepository.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/irepository/MonkeyFoodFork.data.irepository.main.iml" filepath="$PROJECT_DIR$/.idea/modules/data/irepository/MonkeyFoodFork.data.irepository.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/irepository/MonkeyFoodFork.data.irepository.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/irepository/MonkeyFoodFork.data.irepository.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/local/MonkeyFoodFork.data.local.iml" filepath="$PROJECT_DIR$/.idea/modules/data/local/MonkeyFoodFork.data.local.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/local/MonkeyFoodFork.data.local.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/local/MonkeyFoodFork.data.local.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/local/MonkeyFoodFork.data.local.main.iml" filepath="$PROJECT_DIR$/.idea/modules/data/local/MonkeyFoodFork.data.local.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/local/MonkeyFoodFork.data.local.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/local/MonkeyFoodFork.data.local.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/remote/MonkeyFoodFork.data.remote.iml" filepath="$PROJECT_DIR$/.idea/modules/data/remote/MonkeyFoodFork.data.remote.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/remote/MonkeyFoodFork.data.remote.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/remote/MonkeyFoodFork.data.remote.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/remote/MonkeyFoodFork.data.remote.main.iml" filepath="$PROJECT_DIR$/.idea/modules/data/remote/MonkeyFoodFork.data.remote.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/remote/MonkeyFoodFork.data.remote.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/data/remote/MonkeyFoodFork.data.remote.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/MonkeyFoodFork.design.iml" filepath="$PROJECT_DIR$/.idea/modules/design/MonkeyFoodFork.design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/MonkeyFoodFork.design.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/design/MonkeyFoodFork.design.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/components/MonkeyFoodFork.design.components.iml" filepath="$PROJECT_DIR$/.idea/modules/design/components/MonkeyFoodFork.design.components.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/components/MonkeyFoodFork.design.components.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/design/components/MonkeyFoodFork.design.components.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/components/MonkeyFoodFork.design.components.main.iml" filepath="$PROJECT_DIR$/.idea/modules/design/components/MonkeyFoodFork.design.components.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/components/MonkeyFoodFork.design.components.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/design/components/MonkeyFoodFork.design.components.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/MonkeyFoodFork.design.main.iml" filepath="$PROJECT_DIR$/.idea/modules/design/MonkeyFoodFork.design.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/theme/MonkeyFoodFork.design.theme.iml" filepath="$PROJECT_DIR$/.idea/modules/design/theme/MonkeyFoodFork.design.theme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/theme/MonkeyFoodFork.design.theme.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/design/theme/MonkeyFoodFork.design.theme.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/theme/MonkeyFoodFork.design.theme.main.iml" filepath="$PROJECT_DIR$/.idea/modules/design/theme/MonkeyFoodFork.design.theme.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/theme/MonkeyFoodFork.design.theme.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/design/theme/MonkeyFoodFork.design.theme.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/design/MonkeyFoodFork.design.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/design/MonkeyFoodFork.design.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/MonkeyFoodFork.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/MonkeyFoodFork.domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/model/MonkeyFoodFork.domain.model.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/model/MonkeyFoodFork.domain.model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/model/MonkeyFoodFork.domain.model.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/model/MonkeyFoodFork.domain.model.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/model/MonkeyFoodFork.domain.model.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/model/MonkeyFoodFork.domain.model.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/model/MonkeyFoodFork.domain.model.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/model/MonkeyFoodFork.domain.model.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/repository/MonkeyFoodFork.domain.repository.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/repository/MonkeyFoodFork.domain.repository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/repository/MonkeyFoodFork.domain.repository.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/repository/MonkeyFoodFork.domain.repository.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/repository/MonkeyFoodFork.domain.repository.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/repository/MonkeyFoodFork.domain.repository.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/repository/MonkeyFoodFork.domain.repository.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/repository/MonkeyFoodFork.domain.repository.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/usecase/MonkeyFoodFork.domain.usecase.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/MonkeyFoodFork.feature.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/MonkeyFoodFork.feature.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/favorites/MonkeyFoodFork.feature.home.favorites.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/favorites/MonkeyFoodFork.feature.home.favorites.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/favorites/MonkeyFoodFork.feature.home.favorites.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/favorites/MonkeyFoodFork.feature.home.favorites.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/favorites/MonkeyFoodFork.feature.home.favorites.main.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/favorites/MonkeyFoodFork.feature.home.favorites.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/favorites/MonkeyFoodFork.feature.home.favorites.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/favorites/MonkeyFoodFork.feature.home.favorites.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.main.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.main.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/recipes/MonkeyFoodFork.feature.home.recipes.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/MonkeyFoodFork.feature.home.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.main.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/recipedetail/MonkeyFoodFork.feature.recipedetail.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.main.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/splash/MonkeyFoodFork.feature.splash.unitTest.iml" />
     </modules>
   </component>
 </project>

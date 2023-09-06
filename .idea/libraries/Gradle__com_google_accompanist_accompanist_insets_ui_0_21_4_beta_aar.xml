@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.accompanist:accompanist-insets-ui:0.21.4-beta@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/33c9596133ba257d87371ea128c31188/transformed/jetified-accompanist-insets-ui-0.21.4-beta/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/77b30c5c5a8aa7b448509f4467efc6c1/transformed/jetified-accompanist-insets-ui-0.21.4-beta/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/77b30c5c5a8aa7b448509f4467efc6c1/transformed/jetified-accompanist-insets-ui-0.21.4-beta/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/77b30c5c5a8aa7b448509f4467efc6c1/transformed/jetified-accompanist-insets-ui-0.21.4-beta/AndroidManifest.xml" />
     </CLASSES>
