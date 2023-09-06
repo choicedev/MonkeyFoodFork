@@ -24,11 +24,17 @@ android {
     }
 
     signingConfigs {
+        debug {
+            storeFile file('keystore\\monkey_keystore_debug.jks')
+            storePassword '123456'
+            keyAlias 'monkey_foodbug'
+            keyPassword '123456'
+        }
         release {
-            storeFile = file("keystore/monkey_keystore.jks")
-            storePassword System.getenv("123456")
-            keyAlias System.getenv("monkey_food")
-            keyPassword System.getenv("123456")
+            storeFile file('keystore\\monkey_keystore.jks')
+            storePassword '123456'
+            keyAlias 'monkey_food'
+            keyPassword '123456'
         }
     }
 
