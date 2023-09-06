@@ -1,9 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.accompanist:accompanist-systemuicontroller:0.21.4-beta@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/81e2c1f3c86df137ba5daae71d3749e4/transformed/jetified-accompanist-systemuicontroller-0.21.4-beta/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/aa1ae32dbde72fabb51f84bfd18a544d/transformed/jetified-accompanist-systemuicontroller-0.21.4-beta/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/aa1ae32dbde72fabb51f84bfd18a544d/transformed/jetified-accompanist-systemuicontroller-0.21.4-beta/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/aa1ae32dbde72fabb51f84bfd18a544d/transformed/jetified-accompanist-systemuicontroller-0.21.4-beta/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>

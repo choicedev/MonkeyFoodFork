@@ -13,7 +13,7 @@ android {
         }
         applicationId "com.choice.monkeyfoodfork"
         minSdk 21
-        targetSdk 30
+        targetSdk 31
         versionCode 1
         versionName "0.1 Beta"
 
@@ -23,17 +23,36 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            storeFile = file("keystore/monkey_keystore.jks")
+            storePassword System.getenv("SIGNING_STORE_PASSWORD")
+            keyAlias System.getenv("SIGNING_KEY_ALIAS")
+            keyPassword System.getenv("SIGNING_KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
         debug {
             buildConfigField "String", "API_VERSION", "\"-DEV\""
             minifyEnabled false
             debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "${rootProject.name}_${versionName}.apk"
+                }
+            }
         }
         release {
             minifyEnabled true
-            buildConfigField "String", "API_VERSION", ""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "${rootProject.name}_${versionName}.apk"
+                }
+            }
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
