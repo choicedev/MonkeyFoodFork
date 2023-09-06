@@ -48,8 +48,8 @@ ext {
             viewModelKtx      : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0",
             liveDataKtx       : "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0",
             coil              : "io.coil-kt:coil:1.0.0",
-            material          : "com.google.android.material:material:1.4.0",
-            locationServices  : "com.google.android.gms:play-services-location:18.0.0"
+            material          : "com.google.android.yml.material:material:1.4.0",
+            locationServices  : "com.google.android.yml.gms:play-services-location:18.0.0"
     ]
 
     coil = [
@@ -78,8 +78,8 @@ ext {
     ]
 
     daggerHilt = [
-            main           : "com.google.dagger:hilt-android:2.38.1",
-            androidCompiler: "com.google.dagger:hilt-android-compiler:2.38.1",
+            main           : "com.google.dagger:hilt-android.yml:2.38.1",
+            androidCompiler: "com.google.dagger:hilt-android.yml-compiler:2.38.1",
             viewModel      : 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03',
             compiler       : 'androidx.hilt:hilt-compiler:1.0.0-alpha03',
             navigation     : 'androidx.hilt:hilt-navigation-compose:1.0.0'
