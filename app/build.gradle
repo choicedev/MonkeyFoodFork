@@ -32,9 +32,9 @@ android {
         }
         release {
             storeFile file('keystore\\monkey_keystore.jks')
-            storePassword System.getenv("123456")
-            keyAlias System.getenv("monkey_food")
-            keyPassword System.getenv("123456")
+            storePassword '123456'
+            keyAlias 'monkey_food'
+            keyPassword '123456'
         }
     }
 
