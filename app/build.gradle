@@ -26,9 +26,9 @@ android {
     signingConfigs {
         release {
             storeFile = file("keystore/monkey_keystore.jks")
-            storePassword System.getenv("SIGNING_STORE_PASSWORD")
-            keyAlias System.getenv("SIGNING_KEY_ALIAS")
-            keyPassword System.getenv("SIGNING_KEY_PASSWORD")
+            storePassword System.getenv("123456")
+            keyAlias System.getenv("monkey_food")
+            keyPassword System.getenv("123456")
         }
     }
 
