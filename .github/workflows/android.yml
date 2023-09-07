@@ -23,8 +23,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: gradle
-    - name: 
-      run: chmod +x gradlew
+        run: chmod +x gradlew
     - name: Bundle 'release' with Gradle
       run: ./gradlew bundleRelease
     - name: Sign AAB
@@ -42,31 +41,31 @@ jobs:
       with:
         name: aab
         path: ${{steps.sign_aab.outputs.signedReleaseFile}}
- release:
-   name: Release App Bundle
-   needs: build
-   runs-on: ubuntu-latest
-   steps:
-     - name: Download AAB from build
-       uses: actions/download-artifact@v1
-       with:
-         name: aab
-     - name: Create Release
-       id: create_release
-       uses: actions/create-release@v1
-       env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-       with:
-         tag_name: "v${{ github.event.inputs.version }}"
-         release_name: "v${{ github.event.inputs.version }}"
-     - name: Upload Release AAB
-       id: upload_release_asset
-       uses: actions/upload-release-asset@v1.0.1
-       env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-       with:
-         upload_url: ${{ steps.create_release.outputs.upload_url }}
-         asset_path: aab/app-release.aab
-         asset_name: ${{ github.event.repository.name }}.aab
-         asset_content_type: application/zip
-     - run: echo "Upload returned with status=${{ job.status }}."        
+  release:
+     name: Release App Bundle
+     needs: build
+     runs-on: ubuntu-latest
+     steps:
+       - name: Download AAB from build
+         uses: actions/download-artifact@v1
+         with:
+           name: aab
+       - name: Create Release
+         id: create_release
+         uses: actions/create-release@v1
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         with:
+           tag_name: "v${{ github.event.inputs.version }}"
+           release_name: "v${{ github.event.inputs.version }}"
+       - name: Upload Release AAB
+         id: upload_release_asset
+         uses: actions/upload-release-asset@v1.0.1
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         with:
+           upload_url: ${{ steps.create_release.outputs.upload_url }}
+           asset_path: aab/app-release.aab
+           asset_name: ${{ github.event.repository.name }}.aab
+           asset_content_type: application/zip
+       - run: echo "Upload returned with status=${{ job.status }}."        
