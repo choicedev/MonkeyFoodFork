@@ -5,7 +5,7 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 
 android {
-
+    compileSdkVersion 33
     defaultConfig {
         packagingOptions {
             resources.excludes.add("META-INF/*")
