@@ -5,14 +5,13 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 
 android {
-    compileSdkVersion 33
 
     defaultConfig {
         packagingOptions {
             resources.excludes.add("META-INF/*")
         }
         applicationId "com.choice.monkeyfoodfork"
-        minSdk 31
+        minSdk 25
         targetSdk 33
         versionCode 1
         versionName "0.1 Beta"
@@ -25,13 +24,13 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('keystore\\monkey_keystore_debug.jks')
+            storeFile file('keystore/monkey_keystore_debug.jks')
             storePassword '123456'
             keyAlias 'monkey_foodbug'
             keyPassword '123456'
         }
         release {
-            storeFile file('keystore\\monkey_keystore.jks')
+            storeFile file('keystore/monkey_keystore.jks')
             storePassword '123456'
             keyAlias 'monkey_food'
             keyPassword '123456'
