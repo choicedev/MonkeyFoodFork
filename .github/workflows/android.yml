@@ -33,7 +33,7 @@ jobs:
         fileDir: '/home/runner/work/MonekyFoodFork/MonekyFoodFork/app/keystore/'
         encodedString: ${{ secrets.KEYSTORE }}
     - name: Bundle 'release' with Gradle
-      run: ./gradlew bundleRelease
+      run: ./gradlew :app:bundleRelease
     - name: Sign AAB
       id: sign_aab
       uses: r0adkll/sign-android-release@v1
