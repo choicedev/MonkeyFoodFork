@@ -31,7 +31,7 @@ android {
             keyPassword '123456'
         }
         release {
-            storeFile file('keystore\\monkey_keystore.jks')
+            storeFile file('keystore/monkey_keystore.jks')
             storePassword '123456'
             keyAlias 'monkey_food'
             keyPassword '123456'
@@ -53,11 +53,6 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            applicationVariants.all { variant ->
-                variant.outputs.all {
-                    outputFileName = "${rootProject.name}_${versionName}.apk"
-                }
-            }
             signingConfig signingConfigs.release
         }
     }
