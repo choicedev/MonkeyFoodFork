@@ -23,8 +23,15 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: gradle
-    - name:  'algo agora'
+    - name:  'Permission gradle'
       run: chmod +x gradlew
+    - name: Decode Keystore
+      id: decode_keystore
+      uses: timheuer/base64-to-file@v1.2
+      with:
+        fileName: 'monkey_keystore.jks'
+        fileDir: '/home/runner/work/MonekyFoodFork/MonekyFoodFork/app/keystore/'
+        encodedString: ${{ secrets.KEYSTORE }}
     - name: Bundle 'release' with Gradle
       run: ./gradlew bundleRelease
     - name: Sign AAB
