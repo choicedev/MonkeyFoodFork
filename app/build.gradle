@@ -22,21 +22,6 @@ android {
         }
     }
 
-    signingConfigs {
-        debug {
-            storeFile file('keystore/monkey_keystore_debug.jks')
-            storePassword '123456'
-            keyAlias 'monkey_foodbug'
-            keyPassword '123456'
-        }
-        release {
-            storeFile file('keystore/monkey_keystore.jks')
-            storePassword '123456'
-            keyAlias 'monkey_food'
-            keyPassword '123456'
-        }
-    }
-
     buildTypes {
         debug {
             buildConfigField "String", "API_VERSION", "\"-DEV\""
@@ -52,7 +37,6 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
     }
     compileOptions {
